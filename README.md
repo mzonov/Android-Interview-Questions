@@ -73,8 +73,8 @@
 * Are Kotlin exceptions different from Java exceptions?
 * What is `Nothing` type?
 * What are extensions?
-* What is data class? What’s the difference between this and plain java class? 
-* What is sealed class? How is it different from `Enum`? What is sealed class under the hood?
+* What is `data class`? What’s the difference between this and plain java class? 
+* What is `sealed class`? How is it different from `Enum`? What is sealed class under the hood?
 * What is covariance and contravariance? 
 * What’s the difference between `==` and `===` comparing?
 * What’s the difference between `is` and `as` operators?
@@ -85,7 +85,7 @@
 * What is SAM-interface?
 * What’s the difference between `postValue()` and `setValue()` in `mutableLiveData`? 
 * What is `typealias` keyword?
-* When should we use lazy method? 
+* When should we use `lazy` method? 
 * What’s the difference between property and field?
 * What is backing field?
 * What is destructuring declarations?
@@ -125,7 +125,7 @@
 * What is JIT-compiler? What are advantages and disadvantages?
 * How does the main thread work?
 * Can any Android component be launched before Application-component?
-* What are the differences between commit, commitNow and commitAllowingStateLoss?
+* What are the differences between `commit`, `commitNow` and `commitAllowingStateLoss`?
 * Can we put fragments into each other?
 * What is IPC? 
 * Explain the `AndroidManifest` file and why do you need this?
