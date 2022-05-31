@@ -134,6 +134,10 @@
 * What is Wake Lock?
 * What is Strict mode?
 * What is AIDL?
+* How can we handle Push Notifications?
+* What is Firebase `topic`?
+* What is Push channel?
+* What is Firebase token?
 
 ### Android. UI
 * What’s the difference between `View` and `ViewGroup`? 
@@ -170,6 +174,7 @@
 * How can we manage threads work?
 * What is double check lock? Usage example?
 * What is `WorkManager`?
+* Does `WorkManager` have any restrictions?
 * What thread does GC use for garbage collection?
 * What does `sychronized` keyword do?
 * What is used as mutex in `synchronized` method/block?
