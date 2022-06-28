@@ -73,8 +73,12 @@
 * Are Kotlin exceptions different from Java exceptions?
 * What is `Nothing` type?
 * What are extensions?
+* Which class fields (accessibility modifiers) have extensions access to?
+* What if we'll create an extension with the same signature as class method has? Which method will be lauched?
+* How can we execute an extension in Java?
 * What is `data class`? What’s the difference between this and plain java class? 
 * What is `sealed class`? How is it different from `Enum`? What is sealed class under the hood?
+* What's the difference between `sealed class` and `sealed interface`?
 * What is covariance and contravariance? 
 * What’s the difference between `==` and `===` comparing?
 * What’s the difference between `is` and `as` operators?
@@ -107,13 +111,14 @@
 * What is `ViewPager`? Is it `View` or `ViewGroup`? 
 * What are runtime permissions? 
 * What is `Intent`? What types of `Intent` do you know?
+* What if we'll try to start activity via Service?
 * What is `IntentFilter`? 
 * What is `PendingIntent` in Android?
 * What are different `launchMode` types available in Android?
 * How can `activity` and `fragment` interact?
 * How can we transfer data between fragments?
 * In which case the lifecycle methods call chain would be like this: `onCreate()` -> `onDestroy()`?
-* When fragment’s `setRetain()` method doesn’t work?
+* When fragment’s `setRetain()` method doesn’t work
 * What’s the difference in `addToBackStack` between `replace()` and `add()` methods?
 * Can app work in multiple processes?
 * What is `Service`? What are different types of services?
@@ -157,6 +162,7 @@
 * What parameter should we handle in `onMeasure()`?
 * What need we do for touches and gestures overriding?
 * Describe briefly how `RecyclerView` works.
+* What two methods must we implement in DiffUtil? What do they mean?
 * When should we use `CoordinatorLayout`?
 
 ### Multithreading
@@ -214,6 +220,7 @@
 * What is multi module architecture? What are advantages of this?
 * Describe 3 main principles of OOP.
 * What’s the difference between inheritance and composition?
+* What's the difference between abstract factory and factory pattern?
 
 ### Android. Network
 
