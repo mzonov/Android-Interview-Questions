@@ -154,6 +154,7 @@
 * How can `activity` and `fragment` interact?
 * How can we transfer data between fragments?
 * In which case the lifecycle methods call chain would be like this: `onCreate()` -> `onDestroy()`?
+* What if we call `finish()` in `onCreate()` method of Activity?
 * When fragment’s `setRetain()` method doesn’t work
 * What’s the difference in `addToBackStack` between `replace()` and `add()` methods?
 * Can app work in multiple processes?
@@ -175,6 +176,11 @@
 * What is Wake Lock?
 * What is Strict mode?
 * What is AIDL?
+* What is Protobuf?
+* What is WebSocket?
+* What is WebRTC? 
+
+#### Push Notifications
 * How can we handle Push Notifications?
 * What is Firebase `topic`?
 * What is Push channel?
