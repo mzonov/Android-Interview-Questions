@@ -1,21 +1,15 @@
-### Java
+## Java
 
+
+#### Object
 * What is `Object`? What methods of this do you know?
 * What does `equals()` method do. What is the difference with `==` statement.
 * Why do you need `hashCode()`?
 * What is the relationship between `hashCode()` and `equals()`?
 * How are `hasCode()` and `equals()` implemented?
 * What’s wrong if we override only `equals()` without `hashCode()`?
-* What access modifiers do you know?
-* Which access modifier is more strict: protected or package-private?
-* What does `final` keyword mean?
-* Does it make any sence to declare method private final?
-* What if we declare the only constructor as final?
-* What does static keyword mean?
-* Can we overload static method?
-* What is static class? When should we use it?
-* What class types do you know?
-* How can we get access from inner class to outer class?
+
+#### Exceptions
 * What exception types do you know? What are the differences?
 * Name few classes at the top of exceptions ierarchy.
 * What is `Error`? Examples?
@@ -24,80 +18,122 @@
 * Imagine, we have `try-finally` block. In `try`-block was thrown exception and execution was moved to `finally`-block. In `finally`-block an exception was thrown too. Which one exception would be ignored?
 * Does `finally`-block always triggered?
 * Does exception catching order make any sence? E.g. which should be first: `IOException` or `FileNotFoundException`?
-* What is Java Reflection? 
+
+#### Modifiers & keywords
+* What access modifiers do you know?
+* Which access modifier is more strict: protected or package-private?
+* What does `final` keyword mean?
+* Does it make any sence to declare method private final?
+* What if we declare the only constructor as final?
+* What does static keyword mean?
+* What class types do you know?
+* How can we get access from inner class to outer class?
+
+#### Statics
+* Can we overload static method?
+* What is static class? When should we use it?
+
+#### Strings
 * What’s the difference between `new String("value")` and `"value"`?
 * Is String mutable type or not? Why?
 * What is Java String Pool?
 * What is `String.intern()` method?
 * What’s the difference between `String`, `StringBuilder` and `StringBuffer`.
 * Why is it said that the `length()` method of String class doesn't return accurate results?
-* What is type erasing?
-* What’s the difference between overloading and overriding?
+
+#### Other
 * What is `JIT-compiler`?
 * What is `ClassLoader`?
 * What’s the difference between abstract class and interface?
+* What is Java Reflection? 
 
-### Java Memory Model
+
+## Java Memory Model
 
 * What are the differences between `Heap` and `Stack`?
 * What is a Memory Leak?
 * How do you identify a Memory Leak in Android?
+* What is the Garbage Collector?
 * Describe briefly how GC works.
 * What reference types do you know? What are the differences between them?
 
-### Collections (Java&Kotlin both)
 
+## Collections (Java&Kotlin both)
+
+* What is type erasing?
+* Describe briefly collections tree.
 * What is `Comparator`?
 * What’s the difference between plain array and list?
 * What’s the difference between `ArrayList` and `LinkedList?`?
-* Describe collections tree.
+* Which operations process slowly in List and Array? Which quickly?
 * What is `Map`? What children it has?
 * How does `HashMap` work?
+* What we can use as `hash`? 
 * What are `Generics`? What are their advantages?
 * What is the main feature of `TreeMap` or `TreeSet`?
 
-### Kotlin
 
+## Kotlin
+
+#### General
 * Tell me 5 features of Kotlin.
 * What’s the difference between `val` and `var` keyword?
 * Describe Kotlin access modifiers? Which one is default?
-* What are `let`, `run`, `also`, `apply`, `with` methods?
-* What are infix functions? 
 * How can we create constant?
 * What are the differsences between sequence and collections approaches? 
 * What’s the difference between nested and inner classes?
-* What is smart cast?
 * What’s the difference between Kotlin `Any` and Java `Object`?
 * What are `?` and `!!` signs?
 * What’s the problem with usage of Java classes in Kotlin?
 * Are Kotlin exceptions different from Java exceptions?
 * What is `Nothing` type?
-* What are extensions?
-* Which class fields (accessibility modifiers) have extensions access to?
-* What if we'll create an extension with the same signature as class method has? Which method will be lauched?
-* How can we execute an extension in Java?
-* What is `data class`? What’s the difference between this and plain java class? 
-* What is `sealed class`? How is it different from `Enum`? What is sealed class under the hood?
-* What's the difference between `sealed class` and `sealed interface`?
-* What is covariance and contravariance? 
-* What’s the difference between `==` and `===` comparing?
-* What’s the difference between `is` and `as` operators?
-* How can we create singleton in Kotlin?
-* How can we create anonymous class?
 * What is delegate?
 * What are `inline`/`crossinline`/`noinline` keywords? Maybe we should inline keyword everywhere?
+* What is `reified` keyword? How does it work?
 * What is SAM-interface?
 * What’s the difference between `postValue()` and `setValue()` in `mutableLiveData`? 
-* What is `typealias` keyword?
-* When should we use `lazy` method? 
-* What’s the difference between property and field?
 * What is backing field?
 * What is destructuring declarations?
-* What is `reified` keyword? How does it work?
 * What does annotation `@JvmOverloads` mean?
 * What is `TypeArray`? How does it work?
 
-### Android. Core
+#### Extensions
+* What are extensions under the hood?
+* What we can do with extensions?
+* Which class fields (accessibility modifiers) have extensions access to?
+* What if we'll create an extension with the same signature as class method has? Which method will be lauched?
+* How can we execute an extension in Java?
+
+#### Data Class
+* What is `data class` under the hood? What are the differences with plain java class? 
+* Can we inherit class from data class?
+* Can data class implement interface?
+* What’s the difference between property and field?
+* Does `hashcode` method of data class count field or it count only properties?
+
+#### Sealed Class/Interface
+* What is `sealed class` under the hood? How is it different from `Enum`?
+* When should we use `sealed class`?
+* What's the difference between `sealed class` and `sealed interface`?
+
+#### Objects
+* What is covariance and contravariance? 
+* What’s the difference between `==` and `===` comparing?
+* What’s the difference between `is` and `as` operators?
+* How can we create anonymous class?
+
+#### Syntactic Sugar
+* What is smart cast?
+* What is `typealias` keyword?
+* What are infix functions? 
+* When should we make property `lazy`? 
+* How can we create singleton in Kotlin?
+* What can we do with `let`, `run`, `also`, `apply`, `with` methods?
+
+
+## Android
+
+#### Core
 * What are `Activity` and `Fragment`? What’s the difference between them?
 * What’s the difference between application context and activity context? 
 * How can we launch `activity` and `fragment`? 
@@ -144,7 +180,7 @@
 * What is Push channel?
 * What is Firebase token?
 
-### Android. UI
+#### UI
 * What’s the difference between `View` and `ViewGroup`? 
 * When should we use `FrameLayout`, `LinearLayout` or `ConstraintLayout`?
 * What ways can we implement `Splash Screen`?
@@ -165,7 +201,19 @@
 * What two methods must we implement in DiffUtil? What do they mean?
 * When should we use `CoordinatorLayout`?
 
-### Multithreading
+#### Network
+
+* What is REST?
+* What is `OkHttp`?
+* What is `Retrofit`?
+* What is `SSL`?
+* How can we check internet connection?
+* What is interceptor in `OkHttp`? Give examples of it.
+* How would you handle token refreshing?
+* What Http-methods do you know?
+
+
+## Multithreading
 * What are actual and deprecated ways of multithreading implementation in Android development?
 * What are `Thread` and `Runnable`?
 * What’s the difference `Thread.stop()` and `Thread.interrupt()`?
@@ -190,11 +238,13 @@
 * What is `happens before` relationship?
 * When to use an Android service and when to use a thread
 
-### RxJava
+
+## RxJava
 * Describe the reactive approach.
 * What are `subscribeOn` and `observeOn`? Is their order in chain important?
 * What is scheduler in `RxJava`?
 * What’s the difference between `IO` and `Computation` scheduler?
+* When should we use `IO` and `Computation` schedulers? Is there any clear separation?
 * What source types do you know? 
 * What’s the difference between cold and hot source? 
 * What’s the difference between `Observable` and `Flowable`?
@@ -208,7 +258,7 @@
 * Does `zip` operator acts in parallel or sequentially?
 
 
-### Architecture
+## Architecture
 
 * What are the differences between MVVM, MVP, MVI approaches?.
 * What is Moxy? What is the main feature of this?
@@ -221,14 +271,3 @@
 * Describe 3 main principles of OOP.
 * What’s the difference between inheritance and composition?
 * What's the difference between abstract factory and factory pattern?
-
-### Android. Network
-
-* What is REST?
-* What is `OkHttp`?
-* What is `Retrofit`?
-* What is `SSL`?
-* How can we check internet connection?
-* What is interceptor in `OkHttp`? Give examples of it.
-* How would you handle token refreshing?
-* What Http-methods do you know?
