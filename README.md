@@ -197,8 +197,10 @@
 ## Android
 
 #### Core
-* What are `Activity` and `Fragment`? What’s the difference between them?
-* What’s the difference between application context and activity context? 
+* What is `Application` class?
+* What is `Context`?
+* What’s the difference between application context and activity context?
+* What are `Activity` and `Fragment`? What’s the difference between them? 
 * How can we launch `activity` and `fragment`? 
 * Describe lifecycle of activity and fragment (+ during screen rotation).
 * What are tasks and backstack.
@@ -237,8 +239,23 @@
 * What is ANR? How to prevent it?
 * How to reduce your app size?
 * What is Wake Lock?
-* What is Strict mode?
 * What is AIDL?
+* What is a BroadcastReceiver?
+* What is a LocalBroadcastManager?
+* How does ViewModel work internally? 
+
+#### Data saving
+* How to persist data in an Android app? 
+* What is ORM?
+* How would you preserve Activity state during a screen rotation?
+* Explain Scoped Storage in Android.
+* How to encrypt data in Android?
+* What is commit() and apply() in SharedPreferences?
+
+#### Memory
+* What is the `onTrimMemory()` method? 
+* Why does the `OutOfMemory` happen?
+* How we can find memory leaks in Android app?
 
 #### Push Notifications
 * How can we handle Push Notifications?
@@ -266,9 +283,9 @@
 * Describe briefly how `RecyclerView` works.
 * What two methods must we implement in DiffUtil? What do they mean?
 * When should we use `CoordinatorLayout`?
+* How do the Touch Control and Events work in Android?
 
 #### Network
-
 * What is REST?
 * What is `OkHttp`?
 * What is `Retrofit`?
@@ -277,6 +294,20 @@
 * What is interceptor in `OkHttp`? Give examples of it.
 * How would you handle token refreshing?
 * What Http-methods do you know?
+
+#### Testing
+* What is Unit-testing?
+* What is instrumented testing?
+* What is UI-testing?
+* What is UI-Automator?
+* What testing libraries do you know?
+
+#### Tools
+* What is ADB?
+* What is Strict mode?
+* What is Android Lint?
+* What is Multidex in Android?
+* What does Android Studio Profiler help us to check?
 
 
 ## Multithreading
