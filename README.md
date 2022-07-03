@@ -316,8 +316,7 @@
 * Does `WorkManager` have any restrictions?
 * When to use an Android service and when to use a thread
 
-
-## RxJava
+#### RxJava
 * Describe the reactive approach.
 * What are `subscribeOn` and `observeOn`? Is their order in chain important?
 * What is scheduler in `RxJava`?
@@ -335,6 +334,16 @@
 * What ways of error handling do you know?
 * Does `zip` operator acts in parallel or sequentially?
 
+#### Coroutines
+* What is `Coroutine`?
+* What is `Coroutine Context`?
+* What is `Job`?
+* What is `Scope`?
+* How we can cancel coroutine?
+* How we can change dispatcher inside coroutine?
+* What is `Dispatcher`?
+* What is `Channel`?
+* What is `Flow`?
 
 ## Architecture
 
