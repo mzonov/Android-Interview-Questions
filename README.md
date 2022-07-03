@@ -31,7 +31,7 @@
 * How can we get access from inner class to outer class?
 
 #### Static Components
-* Which components can be marked as static?
+* Which components can be marked as `static`?
 * Can we override static method?
 * What is static class? When should we use it? When shouldn't?
 * What are the restrictions that are applied to the Java static methods?
@@ -42,27 +42,27 @@
 #### Strings
 * What’s the difference between `new String("value")` and `"value"`?
 * Is String mutable type or not? Why?
-* What is String Pool?
+* What is `String Pool`?
 * What is `String.intern()` method?
 * What’s the difference between `String`, `StringBuilder` and `StringBuffer`.
 * Why is it said that the `length()` method of String class doesn't return accurate results?
-* Why CharArray() is preferred over String to store the password?
+* Why `CharArray()` is preferred over String to store the password?
 
 #### Abstraction
 * What is the abstraction?
-* What’s the difference between abstract class and interface?
-* Can there be an abstract method without an abstract class?
-* Can the Interface be final? And abstract class?
-* What is a marker interface?
+* What’s the difference between `abstract class` and `interface`?
+* Can there be an `abstract method` without an `abstract class`?
+* Can the `Interface` be `final`? And `abstract class`?
+* What is a `marker interface`?
 * Can we define private and protected modifiers for the members in interfaces?
 
 #### Nested and Inner classes
-* What is a nested class?
-* What is a inner class?
+* What is a `nested class`?
+* What is a `inner class`?
 * What are the types of inner classes (non-static nested class) used in Java?
-* Is there any difference between nested classes and inner classes?
+* Is there any difference between `nested classes` and `inner classes`?
 * What are anonymous inner classes?
-* What is the nested interface?
+* What is the `nested interface`?
 
 #### Multithreading
 * Differentiate between process and thread?
@@ -92,29 +92,29 @@
 
 #### Network
 * Give a brief description of Java socket programming?
-* What is Socket?
-* What is Protobuf?
-* What is WebSocket?
-* What is WebRTC? 
+* What is `Socket`?
+* What is `Protobuf`?
+* What is `WebSocket`?
+* What is `WebRTC`? 
 
 #### Other
 * What is `JIT-compiler`?
 * What is `ClassLoader`?
-* What is Java Reflection? When should we use it?
+* What is `Java Reflection`? When should we use it?
 * What is a native method?
-* What is an applet?
+* What is an `applet`?
 
 
 ## Java Memory Model
 
 * What are the differences between `Heap` and `Stack`?
-* What is a Memory Leak?
-* How do you identify a Memory Leak in Android?
-* What is the Garbage Collector?
+* What is a `Memory Leak`?
+* How do you identify a `Memory Leak` in Android?
+* What is the `Garbage Collector`?
 * How is garbage collection controlled?
 * Describe briefly how GC works.
 * How can an object be unreferenced?
-* What is the purpose of the finalize() method?
+* What is the purpose of the `finalize()` method?
 * What reference types do you know? What are the differences between them?
 
 
@@ -132,13 +132,13 @@
 * What’s the problem with usage of Java classes in Kotlin?
 * Are Kotlin exceptions different from Java exceptions?
 * What is `Nothing` type?
-* What is delegate?
+* What is `delegate`?
 * What are `inline`/`crossinline`/`noinline` keywords? Maybe we should inline keyword everywhere?
 * What is `reified` keyword? How does it work?
-* What is SAM-interface?
+* What is `SAM`-interface?
 * What’s the difference between `postValue()` and `setValue()` in `mutableLiveData`? 
-* What is backing field?
-* What is destructuring declarations?
+* What is `backing field`?
+* What is `destructuring declarations`?
 * What does annotation `@JvmOverloads` mean?
 * What is `TypeArray`? How does it work?
 
@@ -162,17 +162,17 @@
 * What's the difference between `sealed class` and `sealed interface`?
 
 #### Objects
-* What is covariance and contravariance? 
+* What is `covariance` and `contravariance`? 
 * What’s the difference between `==` and `===` comparing?
 * What’s the difference between `is` and `as` operators?
-* How can we create anonymous class?
+* How can we create `anonymous class`?
 
 #### Syntactic Sugar
-* What is smart cast?
+* What is `smart cast`?
 * What is `typealias` keyword?
-* What are infix functions? 
+* What are `infix` functions? 
 * When should we make property `lazy`? 
-* How can we create singleton in Kotlin?
+* How can we create `singleton` in Kotlin?
 * What can we do with `let`, `run`, `also`, `apply`, `with` methods?
 
 
@@ -225,32 +225,32 @@
 * Can app work in multiple processes?
 * What is `Service`? What are different types of services?
 * `Bound Service` vs `Unbounded service`.
-* How to start a Foreground Service
+* How to start a `Foreground Service`?
 * What is Sticky Intent in Android?
 * What is `ContentProvider`?
 * Can Content Provider be started before Application?
-* What is JIT-compiler? What are advantages and disadvantages?
+* What is `JIT`-compiler? What are advantages and disadvantages?
 * How does the main thread work?
-* Can any Android component be launched before Application-component?
+* Can any Android component be launched before `Application` component?
 * What are the differences between `commit`, `commitNow` and `commitAllowingStateLoss`?
 * Can we put fragments into each other?
-* What is IPC? 
+* What is `IPC`? 
 * Explain the `AndroidManifest` file and why do you need this?
-* What is ANR? How to prevent it?
+* What is `ANR`? How to prevent it?
 * How to reduce your app size?
-* What is Wake Lock?
-* What is AIDL?
-* What is a BroadcastReceiver?
-* What is a LocalBroadcastManager?
-* How does ViewModel work internally? 
+* What is `Wake Lock`?
+* What is `AIDL`?
+* What is a `BroadcastReceiver`?
+* What is a `LocalBroadcastManager`?
+* How does `ViewModel` work internally? 
 
 #### Data saving
 * How to persist data in an Android app? 
-* What is ORM?
+* What is `ORM`?
 * How would you preserve Activity state during a screen rotation?
-* Explain Scoped Storage in Android.
+* Explain `Scoped Storage` in Android.
 * How to encrypt data in Android?
-* What is commit() and apply() in SharedPreferences?
+* What is `commit()` and `apply()` in SharedPreferences?
 
 #### Memory
 * What is the `onTrimMemory()` method? 
@@ -260,8 +260,8 @@
 #### Push Notifications
 * How can we handle Push Notifications?
 * What is Firebase `topic`?
-* What is Push channel?
-* What is Firebase token?
+* What is Push `channel`?
+* What is Firebase `token`?
 
 #### UI
 * What’s the difference between `View` and `ViewGroup`? 
@@ -281,12 +281,12 @@
 * What parameter should we handle in `onMeasure()`?
 * What need we do for touches and gestures overriding?
 * Describe briefly how `RecyclerView` works.
-* What two methods must we implement in DiffUtil? What do they mean?
+* What two methods must we implement in `DiffUtil`? What do they mean?
 * When should we use `CoordinatorLayout`?
 * How do the Touch Control and Events work in Android?
 
 #### Network
-* What is REST?
+* What is `REST`?
 * What is `OkHttp`?
 * What is `Retrofit`?
 * What is `SSL`?
@@ -299,15 +299,15 @@
 * What is Unit-testing?
 * What is instrumented testing?
 * What is UI-testing?
-* What is UI-Automator?
+* What is `UI-Automator`?
 * What testing libraries do you know?
 
 #### Tools
-* What is ADB?
-* What is Strict mode?
-* What is Android Lint?
-* What is Multidex in Android?
-* What does Android Studio Profiler help us to check?
+* What is `ADB`?
+* What is `Strict mode`?
+* What is `Android Lint`?
+* What is `Multidex` in Android?
+* What does `Android Studio Profiler` help us to check?
 
 
 ## Multithreading
