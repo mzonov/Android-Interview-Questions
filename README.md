@@ -16,8 +16,9 @@
 * What construction we use for exception handling?
 * Can we use `try-finally` only (without `catch`)?
 * Imagine, we have `try-finally` block. In `try`-block was thrown exception and execution was moved to `finally`-block. In `finally`-block an exception was thrown too. Which one exception would be ignored?
-* Does `finally`-block always triggered?
+* Does `finally`-block always triggered? Is there any case when `finally` will not be executed?
 * Does exception catching order make any sence? E.g. which should be first: `IOException` or `FileNotFoundException`?
+* How we can create custom exception?
 
 #### Modifiers & keywords
 * What access modifiers do you know?
@@ -29,23 +30,79 @@
 * What class types do you know?
 * How can we get access from inner class to outer class?
 
-#### Statics
-* Can we overload static method?
-* What is static class? When should we use it?
+#### Static Components
+* Which components can be marked as static?
+* Can we override static method?
+* What is static class? When should we use it? When shouldn't?
+* What are the restrictions that are applied to the Java static methods?
+* What is the static block?
+* Can we make constructors static?
+* Can we declare the static variables and methods in an abstract class?
 
 #### Strings
 * What’s the difference between `new String("value")` and `"value"`?
 * Is String mutable type or not? Why?
-* What is Java String Pool?
+* What is String Pool?
 * What is `String.intern()` method?
 * What’s the difference between `String`, `StringBuilder` and `StringBuffer`.
 * Why is it said that the `length()` method of String class doesn't return accurate results?
+* Why CharArray() is preferred over String to store the password?
+
+#### Abstraction
+* What is the abstraction?
+* What’s the difference between abstract class and interface?
+* Can there be an abstract method without an abstract class?
+* Can the Interface be final? And abstract class?
+* What is a marker interface?
+* Can we define private and protected modifiers for the members in interfaces?
+
+#### Nested and Inner classes
+* What is a nested class?
+* What is a inner class?
+* What are the types of inner classes (non-static nested class) used in Java?
+* Is there any difference between nested classes and inner classes?
+* What are anonymous inner classes?
+* What is the nested interface?
+
+#### Multithreading
+* Differentiate between process and thread?
+* What are `Thread` and `Runnable`?
+* What’s the difference `Thread.stop()` and `Thread.interrupt()`?
+* What does `join()` method?
+* Is it possible to start a thread twice?
+* What are `Mutex` and `Semaphore`?
+* Why do we need `volatile`?
+* What does `sychronized` keyword do?
+* What is atomic operation? Examples?
+* Which classes in Java can handle atomic operations?
+* Is it thread safely to increment `volatile` variable?
+* What is deadlock? How to prevent?
+* What is liveLock? How to prevent?
+* What is race condition? How to prevent?
+* How can we manage threads work?
+* What is double check lock? Usage example?
+* What thread does GC use for garbage collection?
+* What is used as mutex in `synchronized` method/block?
+* What is the `Object.wait()` method? 
+* Why must `wait()` method be called from the synchronized block?
+* Imagine that in run-method was thrown `RuntimeException` which hadn’t been catched. What would happen with thread? Is it any way to know about this Exception? Could we resume thread work?
+* What is `happens before` relationship?
+* What is `BlockingQueue`?
+* What is the difference between Java Callable interface and Runnable interface?
+
+#### Network
+* Give a brief description of Java socket programming?
+* What is Socket?
+* What is Protobuf?
+* What is WebSocket?
+* What is WebRTC? 
 
 #### Other
 * What is `JIT-compiler`?
 * What is `ClassLoader`?
-* What’s the difference between abstract class and interface?
-* What is Java Reflection? 
+* What is Java Reflection? When should we use it?
+* What is a native method?
+* What is an applet?
 
 
 ## Java Memory Model
@@ -54,23 +111,11 @@
 * What is a Memory Leak?
 * How do you identify a Memory Leak in Android?
 * What is the Garbage Collector?
+* How is garbage collection controlled?
 * Describe briefly how GC works.
+* How can an object be unreferenced?
+* What is the purpose of the finalize() method?
 * What reference types do you know? What are the differences between them?
-
-
-## Collections (Java&Kotlin both)
-
-* What is type erasing?
-* Describe briefly collections tree.
-* What is `Comparator`?
-* What’s the difference between plain array and list?
-* What’s the difference between `ArrayList` and `LinkedList?`?
-* Which operations process slowly in List and Array? Which quickly?
-* What is `Map`? What children it has?
-* How does `HashMap` work?
-* What we can use as `hash`? 
-* What are `Generics`? What are their advantages?
-* What is the main feature of `TreeMap` or `TreeSet`?
 
 
 ## Kotlin
@@ -131,6 +176,24 @@
 * What can we do with `let`, `run`, `also`, `apply`, `with` methods?
 
 
+## Collections
+
+* What is type erasing?
+* Describe briefly collections tree.
+* What is `Comparator`?
+* What’s the difference between plain array and list?
+* What’s the difference between `ArrayList` and `LinkedList?`?
+* Which operations process slowly in List and Array? Which quickly?
+* What is `Map`? What children it has?
+* How does `HashMap` work?
+* What we can use as `hash`? 
+* What is the default size of load factor in hashing based collection?
+* What are `Generics`? What are their advantages?
+* What is the main feature of `TreeMap` or `TreeSet`?
+* What is the difference between `HashSet` and `HashMap`?
+* What is the difference between `HashMap` and `Hashtable`?
+
+
 ## Android
 
 #### Core
@@ -176,9 +239,6 @@
 * What is Wake Lock?
 * What is Strict mode?
 * What is AIDL?
-* What is Protobuf?
-* What is WebSocket?
-* What is WebRTC? 
 
 #### Push Notifications
 * How can we handle Push Notifications?
@@ -221,27 +281,8 @@
 
 ## Multithreading
 * What are actual and deprecated ways of multithreading implementation in Android development?
-* What are `Thread` and `Runnable`?
-* What’s the difference `Thread.stop()` and `Thread.interrupt()`?
-* What are `Mutex` and `Semaphore`?
-* Why do we need `volatile`?
-* What is atomic operation? Examples?
-* Which classes in Java can handle atomic operations?
-* Is it thread safely to increment `volatile` variable?
-* What is deadlock? How to prevent?
-* What is liveLock? How to prevent?
-* What is race condition? How to prevent?
-* How can we manage threads work?
-* What is double check lock? Usage example?
 * What is `WorkManager`?
 * Does `WorkManager` have any restrictions?
-* What thread does GC use for garbage collection?
-* What does `sychronized` keyword do?
-* What is used as mutex in `synchronized` method/block?
-* What does `volatile` keyword do?
-* What is the `Object.wait()` method? 
-* Imagine that in run-method was thrown `RuntimeException` which hadn’t been catched. What would happen with thread? Is it any way to know about this Exception? Could we resume thread work?
-* What is `happens before` relationship?
 * When to use an Android service and when to use a thread
 
 
