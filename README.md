@@ -322,8 +322,8 @@
 * What is scheduler in `RxJava`?
 * What’s the difference between `IO` and `Computation` scheduler?
 * When should we use `IO` and `Computation` schedulers? Is there any clear separation?
-* What source types do you know? 
-* What’s the difference between cold and hot source? 
+* What `source types` do you know? 
+* What’s the difference between `cold` and `hot` source? 
 * What’s the difference between `Observable` and `Flowable`?
 * What is `backpressure`?
 * What is backpressure strategy? 
@@ -345,16 +345,28 @@
 * What is `Channel`?
 * What is `Flow`?
 
+
+## Dagger
+* What is `dependencies graph`?
+* What are Dagger `component`, `module` and `subcomponent`?
+* What are the differences between `@Binds` and `@Provides`?
+* How we can create the `component`?
+* How to `inject` values at runtime in Dagger?
+* What is `scope` in Dagger?
+* How we can create our own `scope`?
+* How to implement Dagger in multi module architecture?
+
+
 ## Architecture
 
-* What are the differences between MVVM, MVP, MVI approaches?.
-* What is Moxy? What is the main feature of this?
-* Describe SOLID principles.
-* What is god object and what examples in Android SDK do you know?
-* What are the differences between dependency injection, dependency inversion and control inversion?
-* Describe Clean Architecture and decompose it on layers.
-* Describe Single Activity principle.
-* What is multi module architecture? What are advantages of this?
-* Describe 3 main principles of OOP.
-* What’s the difference between inheritance and composition?
-* What's the difference between abstract factory and factory pattern?
+* What are the differences between `MVVM`, `MVP`, `MVI` approaches?.
+* What is `Moxy`? What is the main feature of this?
+* Describe `SOLID` principles.
+* What is `god object` and what examples in Android SDK do you know?
+* What are the differences between `dependency injection`, `dependency inversion` and `control inversion`?
+* Describe `Clean Architecture` and decompose it on layers.
+* Describe `Single Activity` principle.
+* What is `multi module` architecture? What are advantages of this?
+* Describe 3 main principles of `OOP`.
+* What’s the difference between `inheritance` and `composition`?
+* What's the difference between `abstract factory` and `factory pattern`?
