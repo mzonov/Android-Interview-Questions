@@ -1,7 +1,7 @@
 ## Java
 
 
-#### Object
+#### Core
 * What is object in Java? 
   <details>
   <summary>Answer</summary>
@@ -51,21 +51,63 @@
   </details>
   
 * What does `equals()` method do. What is the difference with `==` statement.
-* Why do you need `hashCode()`?
-* What is the relationship between `hashCode()` and `equals()`?
-* How are `hasCode()` and `equals()` implemented?
-* What’s wrong if we override only `equals()` without `hashCode()`?
+  <details>
+  <summary>Answer</summary>
+  
+  `==` compares not objects but references.
+  
+  `equals()` **by default** works exactly like `==` under the hood. We must override it to make its work right. 
+  
+  `equals()` **must be** overriden if you want to compare object by their values (manually by `.equals()`, in comparable, in hashmap, etc.).
+  </details>
 
-#### Exceptions
-* What exception types do you know? What are the differences?
-* Name few classes at the top of exceptions ierarchy.
-* What is `Error`? Examples?
-* What construction we use for exception handling?
-* Can we use `try-finally` only (without `catch`)?
-* Imagine, we have `try-finally` block. In `try`-block was thrown exception and execution was moved to `finally`-block. In `finally`-block an exception was thrown too. Which one exception would be ignored?
-* Does `finally`-block always triggered? Is there any case when `finally` will not be executed?
-* Does exception catching order make any sence? E.g. which should be first: `IOException` or `FileNotFoundException`?
-* How we can create custom exception?
+* Why do you need `hashCode()`?
+  <details>
+  <summary>Answer</summary>
+  
+  To compare a lot of objects with only `equals()` can take too much time because we need to check every field (ideally) of every object (in the worst case). 
+  
+  `hashcode()` helps us to make the first quick check: 
+  
+  If hash codes are different there is no sense to make an `equals` check.
+  </details>
+
+* What is the relationship between `hashCode()` and `equals()`?
+  <details>
+  <summary>Answer</summary>
+  
+  1. Two **different** objects can have the same `hashCode`. So-called "collision".
+  
+  2. Two **equals** objects must have the same `hashCode`.
+  
+  We must avoid collisions as much as possible.
+  
+  Also, if we override `equals()` we **must** override `hashcode()`. 
+  </details>
+
+* What’s wrong if we override only `equals()` without `hashCode()`?
+  <details>
+  <summary>Answer</summary>
+  
+  There is a high probability that the comparing process will have wrong results (e.g. hash codes are different but objects are equals).
+  
+  </details>
+
+#### Abstraction
+* What is the abstraction?
+* What’s the difference between `abstract class` and `interface`?
+* Can there be an `abstract method` without an `abstract class`?
+* Can the `Interface` be `final`? And `abstract class`?
+* What is a `marker interface`?
+* Can we define private and protected modifiers for the members in interfaces?
+
+#### Nested and Inner classes
+* What is a `nested class`?
+* What is a `inner class`?
+* What are the types of inner classes (non-static nested class) used in Java?
+* Is there any difference between `nested classes` and `inner classes`?
+* What are anonymous inner classes?
+* What is the `nested interface`?
 
 #### Modifiers & keywords
 * What access modifiers do you know?
@@ -95,21 +137,16 @@
 * Why is it said that the `length()` method of String class doesn't return accurate results?
 * Why `CharArray()` is preferred over String to store the password?
 
-#### Abstraction
-* What is the abstraction?
-* What’s the difference between `abstract class` and `interface`?
-* Can there be an `abstract method` without an `abstract class`?
-* Can the `Interface` be `final`? And `abstract class`?
-* What is a `marker interface`?
-* Can we define private and protected modifiers for the members in interfaces?
-
-#### Nested and Inner classes
-* What is a `nested class`?
-* What is a `inner class`?
-* What are the types of inner classes (non-static nested class) used in Java?
-* Is there any difference between `nested classes` and `inner classes`?
-* What are anonymous inner classes?
-* What is the `nested interface`?
+#### Exceptions
+* What exception types do you know? What are the differences?
+* Name few classes at the top of exceptions ierarchy.
+* What is `Error`? Examples?
+* What construction we use for exception handling?
+* Can we use `try-finally` only (without `catch`)?
+* Imagine, we have `try-finally` block. In `try`-block was thrown exception and execution was moved to `finally`-block. In `finally`-block an exception was thrown too. Which one exception would be ignored?
+* Does `finally`-block always triggered? Is there any case when `finally` will not be executed?
+* Does exception catching order make any sence? E.g. which should be first: `IOException` or `FileNotFoundException`?
+* How we can create custom exception?
 
 #### Multithreading
 * Differentiate between process and thread?
