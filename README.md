@@ -139,11 +139,39 @@
 
 #### Nested and Inner classes
 * What is a `nested class`?
-* What is a `inner class`?
-* What are the types of inner classes (non-static nested class) used in Java?
-* Is there any difference between `nested classes` and `inner classes`?
+  <details>
+  <summary>Answer</summary>
+
+  `nested class` is a class inside another class. It's a member of its enclosing class.
+  
+  Non-static nested classes are called **inner classes**.
+  
+  Static nested classes are called **static nested classes**.
+  
+  Inner classes **have access** to other members of the enclosing class. Even if they are **private**.
+  
+  Static nested classes **don't have access** to other members of the enclosing class.
+  
+  Nested class can be `private`, `public`, `protected`, `package private`.
+  
+  Outer class can only be `public` or `package private`.
+  
+  </details>
 * What are anonymous inner classes?
+  <details>
+  <summary>Answer</summary>
+  
+  **Anonymous inner classes** is an `inner class` without the name and with only single object created.
+  
+  It can be created from `interface` and `class` (abstract or default) aswell.
+  </details>
 * What is the `nested interface`?
+  <details>
+  <summary>Answer</summary>
+  
+  `nested interface` is an interface inside class or another interface. It can't be `private` there.
+  
+  </details>
 
 #### Modifiers & keywords
 * What access modifiers do you know?
