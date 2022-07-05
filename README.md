@@ -2,7 +2,54 @@
 
 
 #### Object
-* What is `Object`? What methods of this do you know?
+* What is object in Java? 
+  <details>
+  <summary>Answer</summary>
+  
+  **Object** - an entity that has *state*, *behavior* and *identity*.
+  
+  *State* is the data of an object.
+  
+  *Behavior* is functionality of an object (like methods, etc.).
+  
+  *Identity* is unique ID of an object, invisible for the user (smth generated inside JVM).
+  </details>
+  
+* What is class?
+  <details>
+  <summary>Answer</summary>
+  
+  **Class** - smth like a template or blueprint from which objects are created. It's not a physical entity.
+  
+  In Java class can contain *fields*, *methods*, *constructors*, *blocks*, *nested class and interface*.
+  </details>
+
+* What is `Object` class in Java? What methods of this do you know?
+  <details>
+  <summary>Answer</summary>
+  
+  **Object** class is the root of the class hierarchy. Every class in Java has `Object` as a superclass. All objects implement the methods of this class.
+  
+  Methods:
+  
+  `clone()` - creates and returns a copy of this object
+   
+  `equals(Object obj)` - indicate an equality of objects
+  
+  `hashcode()` - returns a hash code value of this object
+  
+  `finalize()` - called by a GC when there are no more references to this object
+  
+  `notify()` - wakes up a single thread which is waiting on this object's monitor
+  
+  `notifyAll()` - wakes up all threads that are waiting on this object's monitor
+  
+  `wait()` - causes the current thread to wait until another thread invokes `notify()` or `notifyAll()` for this object
+  
+  `toString()` - returns a string representation of the object
+ 
+  </details>
+  
 * What does `equals()` method do. What is the difference with `==` statement.
 * Why do you need `hashCode()`?
 * What is the relationship between `hashCode()` and `equals()`?
