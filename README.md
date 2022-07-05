@@ -95,11 +95,47 @@
 
 #### Abstraction
 * What is the abstraction?
+  <details>
+  <summary>Answer</summary>
+  
+  **Abstraction** is the process of hiding details and showing only essential information to the user.
+  </details>
 * What’s the difference between `abstract class` and `interface`?
+  <details>
+  <summary>Answer</summary>
+  
+  - `abstract class` can have **abstract and non-abstract** methods. `interface` can have **only abstract**.
+  
+  - `abstract class` can have **final/non-final, static/non-static** variables. `interface` can have **only final and static**.
+  
+  - `abstract class` can be extended, `interface` can be implemented.
+  
+  - `abstract class` can have variables with different modifiers, `interface` can have only **public** variables.
+  </details>
 * Can there be an `abstract method` without an `abstract class`?
+  <details>
+  <summary>Answer</summary>
+  
+  No.
+  </details>
 * Can the `Interface` be `final`? And `abstract class`?
+  <details>
+  <summary>Answer</summary>
+  
+  No. That's meaningless. Abstract constructions must be implemented to use.
+  </details>
 * What is a `marker interface`?
+  <details>
+  <summary>Answer</summary>
+  
+  **Marker interface** is an empty interface without any fields and methods. E.g. `Serializable`, `Cloneable`.
+  </details>
 * Can we define private and protected modifiers for the members in interfaces?
+  <details>
+  <summary>Answer</summary>
+  
+  No.
+  </details>
 
 #### Nested and Inner classes
 * What is a `nested class`?
