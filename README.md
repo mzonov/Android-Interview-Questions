@@ -388,14 +388,89 @@
 
 #### Exceptions
 * What exception types do you know? What are the differences?
+
+  <details>
+  <summary>Answer</summary>
+  
+  - **Checked** exceptions. These exceptions compiler can catch and show us all their places. We must handle them with `try-catch` block. 
+  - **Unchecked** exceptions. The compiler doesn't expect these exceptions hence we can't handle them manually. We need to prevent these exceptions with code quality.
+  </details>
+* Describe an exception tree.
+  <details>
+  <summary>Answer</summary>
+  
+  - At the top of tree there is `Throwable` class.
+  
+  - `Throwable` is divided into `Exception` and `Error`. 
+  
+  - `Error` we can't handle manually. All `Error` classes are unchecked exceptions.
+  
+  - `Exception` are divided into checked and unchecked exceptions.
+  </details>
 * Name few classes at the top of exceptions ierarchy.
+  <details>
+  <summary>Answer</summary>
+  
+  `Throwable` class.
+  </details>
 * What is `Error`? Examples?
-* What construction we use for exception handling?
+
+  <details>
+  <summary>Answer</summary>
+  
+  `Error` is a critical JVM-error. In most cases we can't handle these exceptions. We have to only minimize errors with our code quality.
+  </details>
+* What construction we use for exception handling? Describe every part of it.
+
+  <details>
+  <summary>Answer</summary>
+  
+  `try-catch-finally`.
+  
+  In the `try` block we need to put code which could provoke `Exception`.
+
+  In the `catch` block we need to put handling code when `Exception` has been caught.
+  
+  In the `finally` block we need to put code which must work in any case (has been `Exception` caught or not).
+  
+  </details>
 * Can we use `try-finally` only (without `catch`)?
-* Imagine, we have `try-finally` block. In `try`-block was thrown exception and execution was moved to `finally`-block. In `finally`-block an exception was thrown too. Which one exception would be ignored?
-* Does `finally`-block always triggered? Is there any case when `finally` will not be executed?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Yes.
+  </details>
+* Imagine, we have `try-finally` block. In `try` block was thrown exception and execution was moved to `finally` block. In `finally` block an exception was thrown too. Which one exception would be ignored?
+
+  <details>
+  <summary>Answer</summary>
+  
+  An exception of `try` block would be ignored.
+  </details>
+* Does `finally` block always triggered? Is there any case when `finally` will not be executed?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Yes, always. However it will not be triggered if we kill JVM with `System.exit()` in `try` or `catch` block.
+  </details>
 * Does exception catching order make any sence? E.g. which should be first: `IOException` or `FileNotFoundException`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Yes. The most concrete exception should take the first place in this column. The most abstract - the last place.
+  </details>
 * How we can create custom exception?
+
+  <details>
+  <summary>Answer</summary>
+    
+  We need to create `class` which extends `Exception`. Class name should be ended with `Exception` word to provide right compiler handling.
+  
+  Next, we need to create constructor with `super(message)` execution. It provides message showing like in plain `Exception`.
+  </details>
 
 #### Multithreading
 * Differentiate between process and thread?
