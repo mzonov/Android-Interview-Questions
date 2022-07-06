@@ -363,19 +363,27 @@
   <details>
   <summary>Answer</summary>
   
+  - The `+` operator uses `StringBuffer` to perform strings concatenation.
+    
+  - `StringBuffer` and `StringBuilder` are mutable. They provide `append()`, `insert()`, `delete()` methods for strings manipulation.
+  
+  - `StringBuffer` is synchronized but slow. `StringBuilder` is not synchronized but faster.
+    
   
   </details>
 * Why is it said that the `length()` method of String class doesn't return accurate results?
   <details>
   <summary>Answer</summary>
   
-  
+  Because `length()` can't recognize special symbols.
   </details>
 * Why `CharArray()` is preferred over String to store the password?
   <details>
   <summary>Answer</summary>
   
+  1. Strings are immutable. Another process can dump memory. So you can't modify strings to hide password until GC collect it.
   
+  2. With array you can change items with what you want (e.g. blank items) after the work with password is done.
   </details>
 
 #### Exceptions
