@@ -244,13 +244,75 @@
   </details>
 
 #### Static Components
-* Which components can be marked as `static`?
-* Can we override static method?
-* What is static class? When should we use it? When shouldn't?
-* What are the restrictions that are applied to the Java static methods?
-* What is the static block?
+
+* What is `static` keyword we use for?
+
+  <details>
+  <summary>Answer</summary>
+  
+  The `static` keyword is mainly used for memory management in Java. Static component is the same for every instance of a class.
+  </details>
+* What components can be marked as `static`?
+  <details>
+  <summary>Answer</summary>
+  
+  - Blocks
+  
+  - Variables
+  
+  - Methods
+  
+  - Classes
+  </details>
+  
+* Can we override `static` method?
+
+  <details>
+  <summary>Answer</summary>
+  
+  No, we can't. But we can create the same method in subclass.
+  </details>
+* What is `static class`? When should we use it? When shouldn't?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Class can be made `static` only if it's a nested class. 
+  
+  Nested static classes were described [above](https://github.com/mzonov/Android-Interview-Questions#nested-and-inner-classes).
+  </details>
+* What are the restrictions that are applied to the Java `static` methods?
+
+  <details>
+  <summary>Answer</summary>
+  
+  - They can only call other static `methods` and use `static` variables.
+  
+  - They can't be overriden.
+  
+  - They can't refer to `this` or `super()`.
+  </details>
+* What is the `static` block?
+
+  <details>
+  <summary>Answer</summary>
+  
+  We use `static` block for initialization order if it's important for us.
+  </details>
 * Can we make constructors static?
-* Can we declare the static variables and methods in an abstract class?
+
+  <details>
+  <summary>Answer</summary>
+  
+  No.
+  </details>
+* Can we declare the static variables and methods in an `abstract class`?
+  
+  <details>
+  <summary>Answer</summary>
+  
+  Yes.
+  </details>
 
 #### Strings
 * What’s the difference between `new String("value")` and `"value"`?
