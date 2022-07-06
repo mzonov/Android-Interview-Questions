@@ -316,12 +316,67 @@
 
 #### Strings
 * What’s the difference between `new String("value")` and `"value"`?
+  <details>
+  <summary>Answer</summary>
+  
+  With `new` operator we create every time new object in the heap.
+  
+  If we use literal method it may return an existing object from the `String Pool`.
+  </details>
 * Is String mutable type or not? Why?
+  <details>
+  <summary>Answer</summary>
+  
+  Strings are **immutable**. Why:
+  
+  - Basically, the `String Pool` can work only with immutable strings.
+  
+  - Mutable strings would be a serious security problem. Hackers can't change the reference value, that's it.
+  
+  - Safety for multithreading. 
+  </details>
 * What is `String Pool`?
+  <details>
+  <summary>Answer</summary>
+  
+  It's a special memory space where strings (which are created via `= ""`) are stored by the JVM.
+  </details>
 * What is `String.intern()` method?
+  <details>
+  <summary>Answer</summary>
+  
+  We can store reference to string created with `new` operator to `String Pool` with `String.intern()`. Next time this string will be returned from String Pool.
+  
+  ```
+  String constantString = "interned Baeldung";
+  String newString = new String("interned Baeldung");
+
+  assertThat(constantString).isNotSameAs(newString);
+
+  String internedString = newString.intern();
+
+  assertThat(constantString)
+  .isSameAs(internedString);
+  ```
+  </details>
 * What’s the difference between `String`, `StringBuilder` and `StringBuffer`.
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * Why is it said that the `length()` method of String class doesn't return accurate results?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * Why `CharArray()` is preferred over String to store the password?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 
 #### Exceptions
 * What exception types do you know? What are the differences?
