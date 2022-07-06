@@ -136,6 +136,76 @@
   
   No.
   </details>
+  
+#### Modifiers & keywords
+* What access modifiers do you know?
+  <details>
+  <summary>Answer</summary>
+  
+  `private` - accessible only within the declared class.
+  
+  `default` - accessible only in the same package.
+  
+  `protected` - accessible in the same package and subclasses.
+  
+  `public` - accessible everywhere.
+ 
+  </details>
+
+* Which access modifier is more strict: protected or package-private?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Package-private (`default`).
+  </details>
+* What does `final` keyword mean?
+
+  <details>
+  <summary>Answer</summary>
+  
+  `final` keyword means:
+  
+    - for classes: class can't be inherited by other classes
+    - for methods: method can't be overriden
+    - for variables: variable can't be modified
+  </details>
+* Does it make any sence to declare method `private final`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  No. Because `private` methods are unavailable for overriding.
+  </details>
+* Can we declare the only constructor as `final`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Constructors are not inherited in Java. We can't override or modify it in another class even in subclass. 
+  
+  Hence we can't declare the only constructor as `final`. 
+  </details>
+  
+* What does `static` keyword mean?
+
+  <details>
+  <summary>Answer</summary>
+  
+  The `static` keyword is used for a constant variable or a method that is the same for every instance of a class.
+  
+  Users can apply `static` keyword with variables, methods, blocks, and nested classes.
+  
+  When a member is declared `static`, it can be accessed before any objects of its class are created, and without reference to any object.
+  </details>
+  
+* Can we declare the only constructor as `static`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  No. Because the constructor is called when an object of a class is created. 
+  </details>
 
 #### Nested and Inner classes
 * What is a `nested class`?
@@ -172,16 +242,6 @@
   `nested interface` is an interface inside class or another interface. It can't be `private` there.
   
   </details>
-
-#### Modifiers & keywords
-* What access modifiers do you know?
-* Which access modifier is more strict: protected or package-private?
-* What does `final` keyword mean?
-* Does it make any sence to declare method private final?
-* What if we declare the only constructor as final?
-* What does static keyword mean?
-* What class types do you know?
-* How can we get access from inner class to outer class?
 
 #### Static Components
 * Which components can be marked as `static`?
