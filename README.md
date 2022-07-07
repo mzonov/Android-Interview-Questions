@@ -369,7 +369,6 @@
   
   - `StringBuffer` is synchronized but slow. `StringBuilder` is not synchronized but faster.
     
-  
   </details>
 * Why is it said that the `length()` method of String class doesn't return accurate results?
   <details>
@@ -549,7 +548,11 @@
   <details>
   <summary>Answer</summary>
   
+  Using `volatile` variables reduses the risk of memory consistency errors. Any write to bolatile variable establishes a `happens-before` relationship with subsequent reads of that same variable. 
   
+  Changes to a `volatile` variable are always visible to other threads. 
+  
+  What's more, it also means that when a thread reads a `volatile` variable, it sees not just the latest change to the `volatile`, but also the side effects of the code that led up the change.
   </details>
 * What does `sychronized` keyword do?
   <details>
@@ -590,6 +593,12 @@
   <details>
   <summary>Answer</summary>
   
+  Synchronization is built around an internal entity **intrinsic lock** (or monitor).
+  
+  Every object has an intrinsic lock associated with it. By convention, a thread that needs exclusive and consistent access to an object's fields has to acquire the object's intrinsic lock before accessing them, and then release the intrinsic lock when it's done with them. A thread is said to own the intrinsic lock between the time it has acquired the lock and released the lock. As long as a thread owns an intrinsic lock, no other thread can acquire the same lock. The other thread will block when it attempts to acquire the lock.
+
+  When a thread releases an intrinsic lock, a `happens-before` relationship is established between that action and any subsequent acquisition of the same lock.
+
   </details>
 * What is atomic operation? What's the difference with plain operation?
   <details>
@@ -614,27 +623,38 @@
 * Which classes in Java can handle atomic operations?
   <details>
   <summary>Answer</summary>
+  Classes in `java.util.concurrent.atomic` package support atomic operations on single variables
   
+  All classes have `get` and `set` methods that work like reads and writes on `volatile` variables. That is, a `set` has a `happens-before` relationship with any subsequent get on the same variable. The atomic `compareAndSet` method also has these memory consistency features, as do the simple atomic arithmetic methods that apply to integer atomic variables.
   </details>
-* Is it thread safely to increment `volatile` variable?
+* What is deadlock? 
   <details>
   <summary>Answer</summary>
   
+  **Deadlock** describes a situation where two or more threads are blocked forever, waiting for each other.
   </details>
-* What is deadlock? How to prevent?
+  
+* What is starvation?
   <details>
   <summary>Answer</summary>
   
+  **Starvation** describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by "greedy" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.
   </details>
-* What is liveLock? How to prevent?
+  
+* What is livelock? 
   <details>
   <summary>Answer</summary>
   
+  A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked — they are simply too busy responding to each other to resume work. This is comparable to two people attempting to pass each other in a corridor: Alphonse moves to his left to let Gaston pass, while Gaston moves to his right to let Alphonse pass. Seeing that they are still blocking each other, Alphone moves to his right, while Gaston moves to his left. 
   </details>
 * What is race condition? How to prevent?
   <details>
   <summary>Answer</summary>
   
+  That is situation when two threads use shared resources and the order of code execution is unpredictable. So there may be a situation when one thread try to read already deleted information.
+
+Read-modify-write
+Check-then-act
   </details>
 * How can we manage threads work?
   <details>
@@ -651,7 +671,7 @@
   <summary>Answer</summary>
   
   </details>
-* What is used as mutex in `synchronized` method/block?
+* What is used as monitor in `synchronized` method/block?
   <details>
   <summary>Answer</summary>
   
