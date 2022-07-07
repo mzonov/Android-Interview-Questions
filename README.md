@@ -473,30 +473,215 @@
   </details>
 
 #### Multithreading
-* Differentiate between process and thread?
+* Differentiate between `process` and `thread`?
+  <details>
+  <summary>Answer</summary>
+  
+  `Process` has a self-contained execution environment. In particular, each process has its own memory space.
+  
+  Single application may in fact be a set of cooperatins processes. To provide communication between processes, most OS support `Inter Process Communication(IPC)` resources like pipes and sockets.
+  
+  Most implementations of the JAVM run as a single process. However every Java application can create additional processes.
+  
+  `Thread` are something like *lightweight processes*. Both processes and threads provide an execution environment, but creating a new thread requires fewer resources than creating a new process.
+
+  Threads exist within a process: every process has at least one thread. Threads share the process's resources like memory and files.
+  
+  </details>
 * What are `Thread` and `Runnable`?
+  <details>
+  <summary>Answer</summary>
+  
+  `Thread` object used for directly control thread creation and management.
+  
+  `Runnable` interface defines a single method `run`, meant to contain the code executed in the thread. The `Runnable` object is passed to the `Thread` constructor.
+  </details>
 * What’s the difference `Thread.stop()` and `Thread.interrupt()`?
+  <details>
+  <summary>Answer</summary>
+  
+  `Thread.stop()` is very old method. Since JDK8 it's gone.
+  
+  An **interrupt** is an indication to a thread that it should stop what it's dong. Interruptable thread must support its own interruption.
+  
+  `Thread` class has some methods which throws `InterruptedException` so we need to handle it with `try-catch` block.
+  
+  If any `Thread` method doesn't support `InterruptedException` so we need to check interruptions in `if (Thread.interrupted())` blocks.
+  
+  **The interrupt** mechanism is implemented using an internal flag so-called `interrupt status`. `Thread.interrupt()` sets this flag. `Thread.interrupted` clears this status. `Thread.isInterrupted` doesn't clear this status. So we need to use right method depending on the logic.
+  </details>
 * What does `join()` method?
+  <details>
+  <summary>Answer</summary>
+  
+  `join()` allows one thread to wait for the completion of another. It pauses current thread execution until another (on which we execute `join()` thread terminates.
+  
+  `join()` throws the `InterruptedException`.
+  </details>
 * Is it possible to start a thread twice?
-* What are `Mutex` and `Semaphore`?
+  <details>
+  <summary>Answer</summary>
+  
+  No. If we do so, an `IllegalThreadStateException` will be thrown.
+  </details>
+* What are the differences between `Mutex`, `Monitor` and `Semaphore`?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
+  
+* What is `happens-before` relationship?
+  <details>
+  <summary>Answer</summary>
+  
+  That is relationship which simply guarantee that memory writes by one specific statement are visible to another specific statement.
+  
+  `happens-before` supports these rules:
+  
+  - releasing a monitor `happens-before` blocking this monitor
+  
+  - writing in `volatile` `happens-before` reading from `volatile`
+  
+  - writing value in `final` field during new object building `happens-before` writing this object in some variable
+  </details>
 * Why do we need `volatile`?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What does `sychronized` keyword do?
-* What is atomic operation? Examples?
+  <details>
+  <summary>Answer</summary>
+  
+  - Making method `synchronized` prevents 2+ invocations of `synchronized` methods on the same object. When one thread is executing a synchronized method for an object, all other threads that invoke `synchronized methods` for the same object **suspend execution** until the first thread is done with the object.
+  
+  - `synchronized` method automatically establishes a `happens-before` relationship
+  
+  - We can create `synchronized` blocks with their own object as monitor to prevent extra blocking if it doesn't needed. E.g. code:
+  
+  ```
+  public class MsLunch {
+    private long c1 = 0;
+    private long c2 = 0;
+    private Object lock1 = new Object();
+    private Object lock2 = new Object();
+
+    public void inc1() {
+        synchronized(lock1) {
+            c1++;
+        }
+    }
+
+    public void inc2() {
+        synchronized(lock2) {
+            c2++;
+        }
+    }
+  }
+  ```
+  
+  Class `MsLunch` has two instance fields, `c1` and `c2`, that are never used together. All updates of these fields must be synchronized, but there's no reason to prevent an update of `c1` from being interleaved with an update of `c2` — and doing so reduces concurrency by creating unnecessary blocking. Instead of using `synchronized` methods or otherwise using the lock associated with this, we create two objects solely to provide locks.
+  </details>
+  
+* How does `synchronized` keyword work under the hood (briefly)?
+
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
+* What is atomic operation? What's the difference with plain operation?
+  <details>
+  <summary>Answer</summary>
+  
+  The most of plain operations are not executing in one step. E.g. increment operation has these steps:
+  
+  1. Retrieve the current value of variable.
+  
+  2. Increment the retrieved value by 1.
+  
+  3. Store the incremented value back in variable.
+  
+  So if we use one variable in multithreading environment, we'll have a lot of mistakes.
+  
+  **Atomic operation acts in one step**. This operation can't stop in the middle.
+  
+  - Reads and writes are atomic for reference variables and for most primitive variables (all types except `long` and `double`).
+  
+  - Reads and writes are atomic for all variables declared `volatile` (including `long` and `double` variables).
+  </details>
 * Which classes in Java can handle atomic operations?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Is it thread safely to increment `volatile` variable?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is deadlock? How to prevent?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is liveLock? How to prevent?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is race condition? How to prevent?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * How can we manage threads work?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is double check lock? Usage example?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What thread does GC use for garbage collection?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is used as mutex in `synchronized` method/block?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is the `Object.wait()` method? 
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Why must `wait()` method be called from the synchronized block?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Imagine that in run-method was thrown `RuntimeException` which hadn’t been catched. What would happen with thread? Is it any way to know about this Exception? Could we resume thread work?
-* What is `happens before` relationship?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `BlockingQueue`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is the difference between Java Callable interface and Runnable interface?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 
 #### Network
 * Give a brief description of Java socket programming?
