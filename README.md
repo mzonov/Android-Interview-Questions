@@ -652,9 +652,6 @@
   <summary>Answer</summary>
   
   That is situation when two threads use shared resources and the order of code execution is unpredictable. So there may be a situation when one thread try to read already deleted information.
-
-Read-modify-write
-Check-then-act
   </details>
 * How can we manage threads work?
   <details>
