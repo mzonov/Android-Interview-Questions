@@ -653,6 +653,17 @@
   
   That is situation when two threads use shared resources and the order of code execution is unpredictable. So there may be a situation when one thread try to read already deleted information.
   </details>
+  
+* What are `Lock` objects in Java?
+  <details>
+  <summary>Answer</summary>
+  
+  Synchronized code relies on a simple kind of **reentrant lock**. This kind of lock is easy to use, but has many limitations. More sophisticated locking idioms are supported by the `java.util.concurrent.locks` package. 
+  
+  `Lock` objects work very much like the implicit locks used by synchronized code. As with implicit locks, only one thread can own a `Lock` object at a time. Lock objects also support a `wait/notify` mechanism.
+  
+  The biggest advantage of `Lock` objects over implicit locks is their ability to back out of an attempt to acquire a lock. The `tryLock` method backs out if the lock is not available immediately or before a timeout expires (if specified). The `lockInterruptibly` method backs out if another thread sends an interrupt before the lock is acquired.
+  </details>
 * How can we manage threads work?
   <details>
   <summary>Answer</summary>
@@ -694,7 +705,7 @@
   <summary>Answer</summary>
   
   </details>
-* What is the difference between Java Callable interface and Runnable interface?
+* What is the difference between Java `Callable` interface and `Runnable` interface?
   <details>
   <summary>Answer</summary>
   
