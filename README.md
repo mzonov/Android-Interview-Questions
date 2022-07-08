@@ -527,7 +527,17 @@
   <details>
   <summary>Answer</summary>
   
+  `Mutex` (MUTual EXclusion) is a special object for threads synchronization. Every object has a mutex.
   
+  `Mutex` has a mission of providing a mechanism so that only one thread has access to an object at a certain time. 
+  
+  We can't change `mutex` value manually. 
+  
+  `Monitor` is like a wrapping code around our code block/method which we want to synchronize.
+  
+  `Semaphore` is a mechanism for synchronization an access to some resource. This mechanism uses a counter. The counter tells us how many threads can simultaneously get the access to shared resource.
+  
+  We can manually set how many threads can simultaneously get the access.
   </details>
   
 * What is `happens-before` relationship?
@@ -600,6 +610,12 @@
   When a thread releases an intrinsic lock, a `happens-before` relationship is established between that action and any subsequent acquisition of the same lock.
 
   </details>
+* What is used as `mutex` in `synchronized` method/block?
+  <details>
+  <summary>Answer</summary>
+  
+  By default the monitor is the object synchronized method/block is located. But we can always change it like this `synchronized(lock1)`. 
+  </details>
 * What is atomic operation? What's the difference with plain operation?
   <details>
   <summary>Answer</summary>
@@ -664,36 +680,27 @@
   
   The biggest advantage of `Lock` objects over implicit locks is their ability to back out of an attempt to acquire a lock. The `tryLock` method backs out if the lock is not available immediately or before a timeout expires (if specified). The `lockInterruptibly` method backs out if another thread sends an interrupt before the lock is acquired.
   </details>
-* How can we manage threads work?
-  <details>
-  <summary>Answer</summary>
-  
-  </details>
 * What is double check lock? Usage example?
   <details>
   <summary>Answer</summary>
   
   </details>
-* What thread does GC use for garbage collection?
+* Which thread does GC use for garbage collection?
   <details>
   <summary>Answer</summary>
-  
-  </details>
-* What is used as monitor in `synchronized` method/block?
-  <details>
-  <summary>Answer</summary>
-  
   
   </details>
 * What is the `Object.wait()` method? 
   <details>
   <summary>Answer</summary>
   
+  Releases monitor and puts the calling thread into a wait state until another thread call the method `notify()` 
   </details>
-* Why must `wait()` method be called from the synchronized block?
+* Why must `wait()`, `notify()` and `notifyAll()` methods be called from the synchronized block?
   <details>
   <summary>Answer</summary>
   
+  Because `wait()`, `notify()` and `notifyAll()` methods are need monitor. So `synchronize` creates this monitor.
   </details>
 * Imagine that in run-method was thrown `RuntimeException` which hadn’t been catched. What would happen with thread? Is it any way to know about this Exception? Could we resume thread work?
   <details>
