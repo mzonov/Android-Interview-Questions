@@ -706,16 +706,20 @@
   <details>
   <summary>Answer</summary>
   
+  
   </details>
 * What is `BlockingQueue`?
   <details>
   <summary>Answer</summary>
   
+  A `Queue` that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.
+
   </details>
 * What is the difference between Java `Callable` interface and `Runnable` interface?
   <details>
   <summary>Answer</summary>
   
+  `Runnable` instances can be run by `Thread` class as well as `ExecutorService` but `Callable` instances can only be executed via `ExecutorService`.
   </details>
 
 #### Network
