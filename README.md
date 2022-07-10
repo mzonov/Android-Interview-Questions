@@ -11,10 +11,11 @@
   
   The `Java Development Kit` (JDK) is a collection of tools for developing Java applications. With the `JDK`, you can compile programs written in the Java Programming language and run them in a JVM. In addition, the `JDK` provides tools for packaging and distributing your applications.
 
-The `JDK` and the `JRE` share the Java Application Programming Interfaces (Java API). The Java API is a collection of prepackaged libraries developers use to create Java applications. The Java API makes development easier by providing the tools to complete many common programming tasks including string manipulation, date/time processing, networking, and implementing data structures (e.g., lists, maps, stacks, and queues).
+  The `JDK` and the `JRE` share the Java Application Programming Interfaces (Java API). The Java API is a collection of prepackaged libraries developers use to create Java applications. The Java API makes development easier by providing the tools to complete many common programming tasks including string manipulation, date/time processing, networking, and implementing data structures (e.g., lists, maps, stacks, and queues).
 
   Source: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html
   </details>
+  
 * What is `JVM`?
   <details>
   <summary>Answer</summary>
