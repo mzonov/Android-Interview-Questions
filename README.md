@@ -2,6 +2,30 @@
 
 
 #### Core
+* What is the difference between `JDK` and `JRE`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  When you download Java, you get the `Java Runtime Environment` (JRE). The `JRE` consists of the `Java Virtual Machine` (JVM), Java platform core classes, and supporting Java platform libraries. All three are required to run Java applications on your computer. 
+  
+  The `Java Development Kit` (JDK) is a collection of tools for developing Java applications. With the `JDK`, you can compile programs written in the Java Programming language and run them in a JVM. In addition, the `JDK` provides tools for packaging and distributing your applications.
+
+The `JDK` and the `JRE` share the Java Application Programming Interfaces (Java API). The Java API is a collection of prepackaged libraries developers use to create Java applications. The Java API makes development easier by providing the tools to complete many common programming tasks including string manipulation, date/time processing, networking, and implementing data structures (e.g., lists, maps, stacks, and queues).
+
+  Source: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html
+  </details>
+* What is `JVM`?
+  <details>
+  <summary>Answer</summary>
+  
+  The `Java Virtual Machine` (JVM) is an abstract computing machine. The `JVM` is a program that looks like a machine to the programs written to execute in it. This way, Java programs are written to the same set of interfaces and libraries. Each JVM implementation for a specific operating system, translates the Java programming instructions into instructions and commands that run on the local operating system. This way, Java programs achieve platform independence.
+  
+  The `JVM` knows nothing of the Java programming language, only of a particular binary format, the class file format. A class file contains `JVM` instructions (or bytecodes) and a symbol table, as well as other ancillary information.
+  
+  Source: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html
+  
+  </details>
 * What is object in Java? 
   <details>
   <summary>Answer</summary>
@@ -706,7 +730,6 @@
   <details>
   <summary>Answer</summary>
   
-  
   </details>
 * What is `BlockingQueue`?
   <details>
@@ -740,14 +763,106 @@
 ## Java Memory Model
 
 * What are the differences between `Heap` and `Stack`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  The `stack` is used to store an order of methods execution and local variables.
+
+  The stack memory is a physical space (in RAM) allocated to each thread at run time. It is created when a thread creates. Memory management in the stack follows `LIFO` order because it is accessible globally. It stores the variables, references to objects, and partial results. Memory allocated to stack lives until the function returns. If there is no space for creating the new objects, it throws the `java.lang.StackOverFlowError`. The scope of the elements is limited to their threads. The JVM creates a separate stack for each thread.
+
+  The `heap` is used to store objects. It uses dynamic memory allocation/deallocation.
+  
+  It is created when the JVM starts up and used by the application as long as the application runs. It stores objects and JRE classes. Whenever we create objects it occupies space in the heap memory while the reference of that object creates in the stack. It does not follow any order like the `stack`. It dynamically handles the memory blocks. It means, we need not to handle the memory manually. For managing the memory automatically, Java provides the garbage collector that deletes the objects which are no longer being used. Memory allocated to heap lives until any one event, either program terminated or memory free does not occur. The elements are globally accessible in the application. It is a common memory space shared with all the threads. If the heap space is full, it throws the `java.lang.OutOfMemoryError`.
+  
+  The `heap` memory is further divided into the following memory areas:
+  
+  - Young generation
+  - Survivor space
+  - Old generation
+  - Permanent generation
+  - Code Cache
+  
+  Source: https://www.javatpoint.com/stack-vs-heap-java
+  </details>
+
 * What is a `Memory Leak`?
-* How do you identify a `Memory Leak` in Android?
-* What is the `Garbage Collector`?
+
+  <details>
+  <summary>Answer</summary>
+  
+  Basically, the `Memory leak` occurs when programmers create a memory in `heap` and forget to delete it. 
+  
+  The consequences of the `memory leak` is that it reduces the performance of the computer by reducing the amount of available memory. Eventually, in the worst case, too much of the available memory may become allocated and all or part of the system or device stops working correctly, the application fails, or the system slows down.
+  
+  Source: https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/
+  </details>
+* How do you identify a `Memory Leak` in Android a?
+
+  <details>
+  <summary>Answer</summary>
+  - Using [Memory Profiler](https://developer.android.com/studio/profile/memory-profiler) in Android Studio
+  
+  - Using [Leak Canary](https://square.github.io/leakcanary/) app
+  
+  </details>
+* What is the `Garbage Collection`?
+  <details>
+  <summary>Answer</summary>
+  
+  `Automatic garbage collection` is the process of looking at heap memory, identifying which objects are in use and which are not, and deleting the unused objects. An in use object, or a referenced object, means that some part of your program still maintains a pointer to that object. An unused object, or unreferenced object, is no longer referenced by any part of your program. So the memory used by an unreferenced object can be reclaimed.
+
+  </details>
 * How is garbage collection controlled?
+
+  <details>
+  <summary>Answer</summary>
+  
+  In a programming language like C, allocating and deallocating memory is a manual process. In Java, process of deallocating memory is handled automatically by the garbage collector. The basic process can be described as follows.
+  
+  
+  </details>
 * Describe briefly how GC works.
+
+  <details>
+  <summary>Answer</summary>
+  
+  **Step 1: Marking**
+  
+  This is where the garbage collector identifies which pieces of memory are in use and which are not.
+  
+  **Step 2: Normal deletion**
+  
+  Normal deletion removes unreferenced objects leaving referenced objects and pointers to free space.
+
+  The memory allocator holds references to blocks of free space where new object can be allocated.
+
+  **Step 2a: Deletion with compacting**
+  
+  To further improve performance, in addition to deleting unreferenced objects, you can also compact the remaining referenced objects. By moving referenced object together, this makes new memory allocation much easier and faster.
+
+  </details>
 * How can an object be unreferenced?
+
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is the purpose of the `finalize()` method?
+
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What reference types do you know? What are the differences between them?
+
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 
 
 ## Kotlin
