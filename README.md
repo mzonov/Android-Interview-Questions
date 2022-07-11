@@ -848,21 +848,31 @@
   <details>
   <summary>Answer</summary>
   
+  - By nulling the reference
   
+  - By assigning a reference to another
+  
+  - By anonymous object etc.
   </details>
 * What is the purpose of the `finalize()` method?
 
   <details>
   <summary>Answer</summary>
   
-  
+  The `finalize()` method is invoked each time before the object is garbage collected. This method can be used to perform cleanup processing.
   </details>
 * What reference types do you know? What are the differences between them?
 
   <details>
   <summary>Answer</summary>
   
+  1. **Strong reference**. This is the default type/class of Reference Object. Any object which has an active `strong reference` are not eligible for garbage collection. The object is garbage collected only when the variable which was strongly referenced points to null.
   
+  2. **Weak reference**. If JVM detects an object with only `weak references` (i.e. no strong or soft references linked to any object object), this object will be marked for garbage collection.
+
+  3. **Soft reference**. If an object has no strong reference but has a soft reference, then the garbage collector reclaims this object’s memory when GC needs to free up some memory.
+  
+  4. **Phantom reference**. `Phantom Reference` can be used in situations, where sometimes using finalize() is not  sensible.This is a special reference which says that the object was already finalized, and the garbage collector is ready to reclaim its memory.
   </details>
 
 
