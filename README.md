@@ -879,26 +879,136 @@
 ## Kotlin
 
 #### General
-* Tell me 5 features of Kotlin.
 * What’s the difference between `val` and `var` keyword?
+  <details>
+  <summary>Answer</summary>
+  
+  `val` variable is immutable, `var` is mutable.
+  </details>
+ 
 * Describe Kotlin access modifiers? Which one is default?
+  <details>
+  <summary>Answer</summary>
+  
+  - `private`
+  - `protected`
+  - `internal` - visible everywhere in the same module
+  - `public` (default)
+  </details>
 * How can we create constant?
-* What are the differsences between sequence and collections approaches? 
+  <details>
+  <summary>Answer</summary>
+  
+  - In `object` class
+  - In `companion object` section of class
+  - Outside of class
+  </details>
+  
+* What are the differences between sequence and collections approaches? 
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What’s the difference between nested and inner classes?
+  <details>
+  <summary>Answer</summary>
+  
+  A nested class marked as `inner` can access the members of its outer class. Inner classes carry a reference to an object of an outer class.
+  
+  Nested class is like a static nested class in Java.
+  </details>
 * What’s the difference between Kotlin `Any` and Java `Object`?
+  <details>
+  <summary>Answer</summary>
+  
+  - `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`
+  
+  - In Java, primitives types aren’t type of the hierarchy and you need to box them implicitly, while in Kotlin `Any` is a super type of all types.
+  
+  - `Any` can’t hold the `null` value, if you need `null` to be part of your variable you can use the type `Any?`
+  </details>
 * What are `?` and `!!` signs?
+  <details>
+  <summary>Answer</summary>
+  
+  `?` means that this variable or chain is nullable. 
+  
+  With `!!` we say compiler that this variable or chain not nullable.
+  </details>
+ 
 * What’s the problem with usage of Java classes in Kotlin?
+  <details>
+  <summary>Answer</summary>
+  
+  The type of java classes using in Kotlin is a platform type. It means that it has no `null` checking.
+  </details>
 * Are Kotlin exceptions different from Java exceptions?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `Nothing` type?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `delegate`?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What are `inline`/`crossinline`/`noinline` keywords? Maybe we should inline keyword everywhere?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `reified` keyword? How does it work?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `SAM`-interface?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What’s the difference between `postValue()` and `setValue()` in `mutableLiveData`? 
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `backing field`?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `destructuring declarations`?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What does annotation `@JvmOverloads` mean?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 * What is `TypeArray`? How does it work?
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 
 #### Extensions
 * What are extensions under the hood?
