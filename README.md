@@ -161,6 +161,14 @@
   
   No.
   </details>
+* What is `SAM`-interface?
+  <details>
+  <summary>Answer</summary>
+  
+  `Single Abstract Method` interface is an interface having only one abstract method.
+  
+  It means that it's easy to use with lambda.
+  </details>
   
 #### Modifiers & keywords
 * What access modifiers do you know?
@@ -745,6 +753,7 @@
   
   `Runnable` instances can be run by `Thread` class as well as `ExecutorService` but `Callable` instances can only be executed via `ExecutorService`.
   </details>
+  
 
 #### Network
 * Give a brief description of Java socket programming?
@@ -922,7 +931,7 @@
   <details>
   <summary>Answer</summary>
   
-  - `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`
+  - `Any` is not `java.lang.Object`; in particular, it does not have any members other than `equals()`, `hashCode()` and `toString()`. But while compiling in Java other methods are appearing.
   
   - In Java, primitives types aren’t type of the hierarchy and you need to box them implicitly, while in Kotlin `Any` is a super type of all types.
   
@@ -947,19 +956,39 @@
   <details>
   <summary>Answer</summary>
   
-  
+  Yes. Kotlin exceptions are all unchecked.
   </details>
 * What is `Nothing` type?
   <details>
   <summary>Answer</summary>
   
+  `Nothing` type means that this function will never return anything. So the code after `Nothing` method is unreachable.
   
+  This type is a subtype of all classes.
+  
+  Examples of usage:
+  
+  - `TODO` method
+  
+  - Method with throws an exception
   </details>
 * What is `delegate`?
   <details>
   <summary>Answer</summary>
   
+  It uses the **delegation pattern**. It is an object-oriented design pattern that allows object composition to achieve the same code reuse as inheritance.
   
+  With some common kinds of properties, even though you can implement them manually every time you need them, it is more helpful to implement them once, add them to a library, and reuse them later.
+  
+  Property delegates don’t have to implement an interface, but they have to provide a `getValue()` function (and `setValue()` for `vars`).
+  
+  Standard famous delegates:
+  
+  - `lazy()`
+  
+  - `observable()`
+  
+  - `viewBinding()`
   </details>
 * What are `inline`/`crossinline`/`noinline` keywords? Maybe we should inline keyword everywhere?
   <details>
@@ -968,12 +997,6 @@
   
   </details>
 * What is `reified` keyword? How does it work?
-  <details>
-  <summary>Answer</summary>
-  
-  
-  </details>
-* What is `SAM`-interface?
   <details>
   <summary>Answer</summary>
   
@@ -1001,13 +1024,11 @@
   <details>
   <summary>Answer</summary>
   
+  Kotlin supports predefined methods/constructors operators like `fun bar(a: Int=0, b: Double =0.0, c: String="default value")`.
   
-  </details>
-* What is `TypeArray`? How does it work?
-  <details>
-  <summary>Answer</summary>
+  So we can execute this like `bar()`, `bar(1)`, `bar(1, 1.0), `bar("asd")`, etc.
   
-  
+  In Java we can't do this stuff. So the `@JvmOverloads` annotation means that Kotlin will overload all these options (like `bar()`, `bar(1)`, etc) for Java execution.
   </details>
 
 #### Extensions
@@ -1111,6 +1132,7 @@
 * What is a `BroadcastReceiver`?
 * What is a `LocalBroadcastManager`?
 * How does `ViewModel` work internally? 
+* What is `TypedArray`?
 
 #### Data saving
 * How to persist data in an Android app? 
