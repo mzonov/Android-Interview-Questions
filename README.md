@@ -1252,14 +1252,60 @@
 
 #### Data Class
 * What is `data class` under the hood? What are the differences with plain java class? 
+  <details>
+  <summary>Answer</summary>
+    
+  Under the hood that is plain class with implemented `equals()`, `hashCode()`, `toString()`, constructor and fields with getters/setters.
+  
+  </details>
+    
+* Why shouldn't we use `data class` everywhere?
+    
 * Can we inherit class from data class?
+  <details>
+  <summary>Answer</summary>
+  
+  Yes
+  
+  </details>
 * Can data class implement interface?
-* Does `hashcode` method of data class count field or it count only properties?
+  <details>
+  <summary>Answer</summary>
+    
+  Yes
+  </details>
+* Does `hashcode` method of data class count class properties or constructor params only?
+  <details>
+  <summary>Answer</summary>
+    
+  
+  </details>
 
 #### Sealed Class/Interface
 * What is `sealed class` under the hood? How is it different from `Enum`?
+    
+  <details>
+  <summary>Answer</summary>
+    
+  `sealed class` under the hood is just an `abstract class`. Its childs just inherit this `abstract class`.
+    
+  `enum class` is a group of related constants, `sealed class` is a group of related classes with a different state.
+  </details>
+    
 * When should we use `sealed class`?
+  <details>
+  <summary>Answer</summary>
+    
+  If we have a constrained amount of options with different fillings.
+  </details>
+    
 * What's the difference between `sealed class` and `sealed interface`?
+    
+  <details>
+  <summary>Answer</summary>
+    
+  Interfaces can implement multiple other interfaces, and sealed classes are limited to a single parent class
+  </details>
 
 #### Objects
 * What is `covariance` and `contravariance`? 
@@ -1270,10 +1316,44 @@
 #### Syntactic Sugar
 * What is `smart cast`?
 * What is `typealias` keyword?
+  <details>
+  <summary>Answer</summary>
+  
+  It provides making new type from another one. In most cases it's used for shortening long type name.
+  </details>
+  
 * What are `infix` functions? 
+  <details>
+  <summary>Answer</summary>
+    
+  Functions marked with the `infix` keyword can also be called using the `infix` notation (omitting the dot and the parentheses for the call). `Infix` functions must meet the following requirements:
+
+  - They must be member functions or extension functions.
+
+  - They must have a single parameter.
+
+  - The parameter must not accept variable number of arguments and must have no default value.
+  </details>
 * When should we make property `lazy`? 
+  <details>
+  <summary>Answer</summary>
+  
+  When we need to initialize property with the first getting.
+  </details>
 * How can we create `singleton` in Kotlin?
+  <details>
+  <summary>Answer</summary>
+  
+  - With created `object` class
+  
+  - With created `companion object` in class
+    
+  </details>
 * What can we do with `let`, `run`, `also`, `apply`, `with` methods?
+  <details>
+  <summary>Answer</summary>
+    
+  </details>
 
 
 ## Collections
