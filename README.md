@@ -916,7 +916,15 @@
 * What are the differences between sequence and collections approaches? 
   <details>
   <summary>Answer</summary>
+  **Collections** are eagerly evaluated — each operation is performed when it’s called and the result of the operation is stored in a new collection. The transformations on collections are `inline` functions.
   
+  **Sequences** are lazily evaluated. They have two types of operations: intermediate and terminal. Intermediate operations are not performed on the spot; they’re just stored. Only when a terminal operation is called, the intermediate operations are triggered on each element in a row and finally, the terminal operation is applied. Intermediate operations (like map, distinct, groupBy etc) return another sequence whereas terminal operations (like first, toList, count etc) don’t.
+
+  Sequences don’t hold a reference to the items of the collection. They’re created based on the iterator of the original collection and keep a reference to all the intermediate operations that need to be performed.
+
+  Unlike transformations on collections, intermediate transformations on sequences are not inline functions — inline functions cannot be stored and sequences need to store them.
+  
+  Image illustrated principle differences between **collections** and **sequences**: https://typealias.com/img/guides/sequences-illustrated-guide/order-of-operations.png
   
   </details>
 * What’s the difference between nested and inner classes?
@@ -1006,19 +1014,92 @@
   <details>
   <summary>Answer</summary>
   
+  `setValue()` must be used only from the main thread
+  
+  `postValue()` is asynchronous and can be used from any thread.
+  </details>
+  
+* What is `property`?
+  <details>
+  <summary>Answer</summary>
+  Properties in Kotlin classes can be declared either as mutable, using the `var` keyword, or as read-only, using the `val` keyword.
+  
+  The full syntax for declaring a property is as follows:
+
+  ```
+  var <propertyName>[: <PropertyType>] [= <property_initializer>]
+    [<getter>]
+    [<setter>]
+  ```
+  
+  You can define custom accessors for a property. If you define a custom getter, it will be called every time you access the property (this way you can implement a computed property).
+  
+  If you need to annotate an accessor or change its visibility, but you don't need to change the default implementation, you can define the accessor without defining its body:
+
+  ```
+  var setterVisibility: String = "abc"
+    private set // the setter is private and has the default implementation
+
+  var setterWithAnnotation: Any? = null
+    @Inject set // annotate the setter with Inject
+  ```
   
   </details>
+  
+* What’s the difference between property and field?
+  <details>
+  <summary>Answer</summary>
+  In Kotlin, a field is only used as a part of a property to hold its value in memory. Fields cannot be declared directly. However, when a property needs a backing field, Kotlin provides it automatically. 
+  
+  </details>
+
 * What is `backing field`?
   <details>
   <summary>Answer</summary>
   
+  This backing field can be referenced in the accessors using the field identifier:
   
+  ```
+  var counter = 0 // the initializer assigns the backing field directly
+    set(value) {
+        if (value >= 0)
+            field = value
+            // counter = value // ERROR StackOverflow: Using actual name 'counter' would make setter recursive
+    }
+  ```
+  The field identifier can only be used in the accessors of the property.
+
+  A backing field will be generated for a property if it uses the default implementation of at least one of the accessors, or if a custom accessor references it through the field identifier.
   </details>
+  
 * What is `destructuring declarations`?
   <details>
   <summary>Answer</summary>
   
+  It creates multiple variables at once.
   
+  ```
+  val (name, age) = person
+  ```
+  
+  It's compiled down to the following code:
+  
+  ```
+  val name = person.component1()
+  val age = person.component2()
+  ```
+  
+  Examples of usage: 
+  
+  - returning two values from a function
+  
+  - in maps
+  
+  - We can use underscore instead of unused variables `val (_, status) = getResult()`
+  
+  - in lambdas
+  
+  Source: https://kotlinlang.org/docs/destructuring-declarations.html#example-returning-two-values-from-a-function
   </details>
 * What does annotation `@JvmOverloads` mean?
   <details>
@@ -1042,7 +1123,6 @@
 * What is `data class` under the hood? What are the differences with plain java class? 
 * Can we inherit class from data class?
 * Can data class implement interface?
-* What’s the difference between property and field?
 * Does `hashcode` method of data class count field or it count only properties?
 
 #### Sealed Class/Interface
