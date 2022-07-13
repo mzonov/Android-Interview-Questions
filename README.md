@@ -916,6 +916,7 @@
 * What are the differences between sequence and collections approaches? 
   <details>
   <summary>Answer</summary>
+  
   **Collections** are eagerly evaluated — each operation is performed when it’s called and the result of the operation is stored in a new collection. The transformations on collections are `inline` functions.
   
   **Sequences** are lazily evaluated. They have two types of operations: intermediate and terminal. Intermediate operations are not performed on the spot; they’re just stored. Only when a terminal operation is called, the intermediate operations are triggered on each element in a row and finally, the terminal operation is applied. Intermediate operations (like map, distinct, groupBy etc) return another sequence whereas terminal operations (like first, toList, count etc) don’t.
@@ -998,18 +999,80 @@
   
   - `viewBinding()`
   </details>
-* What are `inline`/`crossinline`/`noinline` keywords? Maybe we should inline keyword everywhere?
+* What is `inline` function? 
   <details>
   <summary>Answer</summary>
   
+  Every time we declare a higher-order function, at least one instance of those special `Function*` types will be created (similar to `anonymous inner classes` in Java).
   
+  In order to actually perform the operation encapsulated in a Kotlin lambda, the higher-order function will need to call the special method named `invoke` on the new instance. The result is more overhead due to the extra call.
+  
+  So, when we’re passing a lambda to a function, the following happens under the hood:
+
+  - At least one instance of a special type is created and stored in the heap
+  
+  - An extra method call will always happen
+  
+  Also, Kotlin erases the `generic` type information at runtime. That is, an instance of a `generic` class doesn’t preserve its type parameters at runtime.
+  
+  **So, what does `inline` do?**
+  
+  When using `inline` functions, the compiler inlines the function body. That is, it substitutes the body directly into places where the function gets called. By default, the compiler inlines the code for both the function itself and the lambdas passed to it.
+  
+  **However**, we should not overuse the inline functions, especially for long functions since the inlining may cause the generated code to grow quite a bit.
+  
+  Source: https://www.baeldung.com/kotlin/inline-functions
   </details>
+  
+* What is the difference between `crossinline` and `noinline`?
+  <details>
+  <summary>Answer</summary>
+  
+  `noinline`:
+  
+  By default, all lambdas passed to an `inline` function would be inlined, too. However, we can mark some of the lambdas with the `noinline` keyword to exclude them from inlining.
+  
+  `crossinline`:
+  It provides an opportunity of inlining lambda inside another lambda, not in current function. Example: 
+  ```
+  inline fun test4(crossinline f: () -> Unit) {
+    thread { f() }
+  }
+
+  fun compiledMain4() {
+      thread {
+          println("start")
+          println("stop")
+      }
+  }
+  ```
+  
+  Source: https://www.baeldung.com/kotlin/crossinline-vs-noinline, 
+  https://stackoverflow.com/a/51113423/7041761
+  </details>
+  
+* Maybe we should to use the `inline` everywhere?
+  <details>
+  <summary>Answer</summary>
+  
+  The Kotlin team wants you to use the inlining feature sensibly. With inlining the size of the compiled code can explode dramatically and even hit the JVM limits of up to 64K bytecode instructions per method. The main use case is higher-order functions that avoid the cost of creating an actual lambda object, only to discard it right after a single function call which happens right away.
+
+  Source: https://stackoverflow.com/a/51113423/7041761
+  </details>
+  
 * What is `reified` keyword? How does it work?
   <details>
   <summary>Answer</summary>
   
+  Kotlin erases the generic type information at runtime, but for `inline` functions, we can avoid this limitation. That is, the compiler can reify generic type information for inline functions.
   
+  `inline fun <reified T> Any.isA(): Boolean = this is T`
+  
+  Without `inline` and `reified`, the `isA` function wouldn’t compile.
+
+  Why `inline`? Because only in embedded code compiler can check the generic type.
   </details>
+  
 * What’s the difference between `postValue()` and `setValue()` in `mutableLiveData`? 
   <details>
   <summary>Answer</summary>
