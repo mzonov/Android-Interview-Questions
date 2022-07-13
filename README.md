@@ -1176,11 +1176,79 @@
   </details>
 
 #### Extensions
+* What can we do with extensions?
+  <details>
+  <summary>Answer</summary>
+    
+  We can "extend" a desired class with custom function or property.
+  </details>
+    
 * What are extensions under the hood?
-* What we can do with extensions?
+  <details>
+  <summary>Answer</summary>
+    
+  Under the hood, our extension function is actually a static function with the first parameter as the receiver object. It is enclosed in a class with name generated as the filename appended with `kt`.
+    
+  Example:
+    
+  ```
+  fun String.second(): Char {
+    if (isEmpty()) throw NoSuchElementException("Char sequence is empty.")
+    if (length < 2) throw NoSuchElementException("Char sequence length is less than 2.")
+    return this[1]
+  }
+  ```
+  
+  Converts to:
+                   
+  ```
+  public final class ExtensionFunctionsKt {
+   public static final char second(@NotNull String $receiver) {
+      Intrinsics.checkParameterIsNotNull($receiver, "$receiver");
+      CharSequence var1 = (CharSequence)$receiver;
+      if (var1.length() == 0) {
+         throw (Throwable)(new NoSuchElementException("Char sequence is empty."));
+      } else if ($receiver.length() < 2) {
+         throw (Throwable)(new NoSuchElementException("Char sequence length is less than 2."));
+      } else {
+         return $receiver.charAt(1);
+      }
+   }
+  }
+  ```
+    
+  Source: https://medium.com/tompee/idiomatic-kotlin-extension-functions-67735491851f
+  </details>
 * Which class fields (accessibility modifiers) have extensions access to?
-* What if we'll create an extension with the same signature as class method has? Which method will be lauched?
+  <details>
+  <summary>Answer</summary>
+    
+  Extensions utilize the same visibility modifiers as regular functions declared in the same scope would. For example:
+
+  An extension declared at the top level of a file has access to the other private top-level declarations in the same file.
+
+  If an extension is declared outside its receiver type, it cannot access the receiver's private or protected members.
+    
+  Source: https://kotlinlang.org/docs/extensions.html#note-on-visibility
+  </details>
+* What if we'll create an extension with the same signature as class method has? Which method would be launched?
+  <details>
+  <summary>Answer</summary>
+    
+  Class method would be launched.
+    
+  Source: https://kotlinlang.org/docs/extensions.html#extensions-are-resolved-statically
+  </details>
 * How can we execute an extension in Java?
+  <details>
+  <summary>Answer</summary>
+    
+  We can add `kt` postfix to an extension class name and execute this in Java.
+    
+  E.g. the extension is in `Utils.kt` class.
+    
+  In java: `UtilsKt.getExtenstion()`
+  </details>
 
 #### Data Class
 * What is `data class` under the hood? What are the differences with plain java class? 
