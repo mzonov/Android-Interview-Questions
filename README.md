@@ -1372,72 +1372,231 @@
 
 ## Collections
 
-* What is type erasing?
+* What is type erasure?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Describe briefly collections tree.
+    
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `Comparator`?
+    
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What’s the difference between plain array and list?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What’s the difference between `ArrayList` and `LinkedList?`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Which operations process slowly in List and Array? Which quickly?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `Map`? What children it has?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * How does `HashMap` work?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What we can use as `hash`? 
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is the default size of load factor in hashing based collection?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What are `Generics`? What are their advantages?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is the main feature of `TreeMap` or `TreeSet`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is the difference between `HashSet` and `HashMap`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is the difference between `HashMap` and `Hashtable`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 
 
 ## Android
 
 #### Core
+* List all main components of Android. What do they have in common?
+  <details>
+  <summary>Answer</summary>
+  
+  - Activity
+  
+  - Service
+  
+  - BroadcastReceiver
+    
+  - ContentProvider
+    
+  All of them can be an application entry point.
+  </details>
 * What is `Application` class?
-* What is `Context`?
-* What’s the difference between application context and activity context?
-* What are `Activity` and `Fragment`? What’s the difference between them? 
-* How can we launch `activity` and `fragment`? 
-* Describe lifecycle of activity and fragment (+ during screen rotation).
+  <details>
+  <summary>Answer</summary>
+  
+  The `Application` class in Android is the base class within an Android app that contains all other components such as activities and services. The Application class, or any subclass of the Application class, is instantiated before any other class when the process for your application/package is created.
+    
+  This class is primarily used for initialization of global state before the first `Activity` is displayed. 
+    
+  Source: https://guides.codepath.com/android/Understanding-the-Android-Application-Class
+  </details>
 * What are tasks and backstack.
-* How can we transfer data between activities?
-* What’s the difference between `Serializable` and `Parcelable`?
-* Which Activity’s lifecycle method triggers during Dialog creation?
-* What is `TargetFragment`?
-* What is retained fragment?
-* What is `ViewPager`? Is it `View` or `ViewGroup`? 
-* What are runtime permissions? 
-* What is `Intent`? What types of `Intent` do you know?
-* What if we'll try to start activity via Service?
-* What is `IntentFilter`? 
-* What is `PendingIntent` in Android?
 * What are different `launchMode` types available in Android?
-* How can `activity` and `fragment` interact?
-* How can we transfer data between fragments?
+* What’s the difference between `Serializable` and `Parcelable`?
+* What are runtime permissions? 
 * In which case the lifecycle methods call chain would be like this: `onCreate()` -> `onDestroy()`?
-* What if we call `finish()` in `onCreate()` method of Activity?
-* When fragment’s `setRetain()` method doesn’t work
-* What’s the difference in `addToBackStack` between `replace()` and `add()` methods?
-* Can app work in multiple processes?
-* What is `Service`? What are different types of services?
-* `Bound Service` vs `Unbounded service`.
-* How to start a `Foreground Service`?
-* What is Sticky Intent in Android?
-* What is `ContentProvider`?
-* Can Content Provider be started before Application?
+* Can any component be started before `Application` class? If yes, which component?
 * What is `JIT`-compiler? What are advantages and disadvantages?
 * How does the main thread work?
-* Can any Android component be launched before `Application` component?
-* What are the differences between `commit`, `commitNow` and `commitAllowingStateLoss`?
-* Can we put fragments into each other?
-* What is `IPC`? 
 * Explain the `AndroidManifest` file and why do you need this?
 * What is `ANR`? How to prevent it?
 * How to reduce your app size?
 * What is `Wake Lock`?
 * What is `AIDL`?
-* What is a `BroadcastReceiver`?
-* What is a `LocalBroadcastManager`?
 * How does `ViewModel` work internally? 
 * What is `TypedArray`?
+    
+#### Context
+* What is `Context`?
+  <details>
+  <summary>Answer</summary>
+    
+  Due to [Android documentation](https://developer.android.com/reference/android/content/Context) the `context` is:
+  
+  Interface to global information about an application environment. This is an abstract class whose implementation is provided by the Android system. It allows access to application-specific resources and classes, as well as up-calls for application-level operations such as launching activities, broadcasting and receiving intents, etc.
+    
+  We can break the context and its use into three major points: 
+
+  - It allows us to access resources.
+  
+  - It allows us to interact with other Android components by sending messages.
+  
+  - It gives you information about your app environment.
+    
+  Source: https://www.geeksforgeeks.org/what-is-context-in-android/
+  </details>
+* What’s the difference between application context and activity context?
+  <details>
+  <summary>Answer</summary>
+  
+  **Application context**:
+    
+  This context is tied to the life cycle of an application.
+    
+  There are some use cases:
+    
+  - Load Resource Values
+  
+  - Start a Service
+  
+  - Bind to a Service
+  
+  - Send a Broadcast
+  
+  - Register BroadcastReceiver
+    
+  **Activity context**:
+    
+  It is tied to the life cycle of activity.
+    
+  There are some use cases:
+    
+  - Load Resource Values
+
+  - Layout Inflation
+
+  - Start an Activity
+
+  - Show a Dialog
+
+  - Start a Service
+
+  - Bind to a Service
+
+  - Send a Broadcast
+
+  - Register BroadcastReceiver
+    
+  The difference is that Application’s Context is not UI related. It means that, we shouldn’t use it to Inflate a Layout, Start an Activity nor Show a Dialog. Regarding the rest of the functionalities from Activity’s Context, they are available from Application’s Context also.
+    
+  Source: https://www.geeksforgeeks.org/what-is-context-in-android/, https://medium.com/@banmarkovic/what-is-context-in-android-and-which-one-should-you-use-e1a8c6529652
+  </details>
+* What if we launch `activity` with `app context`?
+    
+#### Activity
+* What is `activity`?
+* How can we launch `activity`
+* Describe `activity` lifecycle. What does it happen during screen rotation?
+* Which `activity` lifecycle method triggers during Dialog creation?
+* How can we transfer data between activities?
+* What if we call `finish()` in `onCreate()` method of Activity?
+    
+#### Fragment
+* What is `fragment`?
+* How can we launch `fragment`?
+* Describe `fragment` lifecycle. What does it happen during screen rotation?
+* What is `fragment manager`?
+* How can we transfer data between fragments?
+* What is `target fragment`?
+* What is `retained fragment`? What are disadvantages?
+* How can `activity` and `fragment` interact?
+* What’s the difference in `addToBackStack` between `replace()` and `add()` methods in `fragment manager`?
+* What are the differences between `commit()`, `commitNow()` and `commitAllowingStateLoss()`?
+* Can we put fragments into each other?
+    
+#### Service
+* What is `Service`? What are different types of services?
+* `Bound Service` vs `Unbounded service`.
+* How to start a `Foreground Service`?
+* What is Sticky Intent in Android?
+* What if we try to start `activity` from `service`?
+* Can we show `toast` from `service`? 
+
+#### Content Provider
+* What is `ContentProvider`?
+* What should we do if we want to share our app's data via `ContentProvider`?
+    
+#### Broadcast Receiver
+* What is a `BroadcastReceiver`?
+* What is a `LocalBroadcastManager`?
+
+#### Intent
+* What is `Intent`? What types of `Intent` do you know?
+* What is `IntentFilter`? 
+* What is `PendingIntent` in Android?
 
 #### Data saving
 * How to persist data in an Android app? 
@@ -1460,6 +1619,7 @@
 
 #### UI
 * What’s the difference between `View` and `ViewGroup`? 
+* What is `ViewPager`? Is it `View` or `ViewGroup`? 
 * When should we use `FrameLayout`, `LinearLayout` or `ConstraintLayout`?
 * What ways can we implement `Splash Screen`?
 * What are `resources`?
@@ -1489,6 +1649,11 @@
 * What is interceptor in `OkHttp`? Give examples of it.
 * How would you handle token refreshing?
 * What Http-methods do you know?
+    
+#### Application Processes
+* What is application process?
+* Can app work in multiple processes?
+* What is `IPC`? 
 
 #### Testing
 * What is Unit-testing?
