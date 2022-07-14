@@ -1315,6 +1315,11 @@
 
 #### Syntactic Sugar
 * What is `smart cast`?
+  <details>
+  <summary>Answer</summary>
+  
+  Kotlin compiler checks inside `if`/`when` statements different conditions of params/variables.
+  </details>
 * What is `typealias` keyword?
   <details>
   <summary>Answer</summary>
@@ -1353,6 +1358,15 @@
   <details>
   <summary>Answer</summary>
     
+  All these inline functions are different by:
+    
+  - object reference
+    
+  - return value
+    
+  This [picture](https://miro.medium.com/max/1400/0*wZoYYxqh_7_B8JQ2.png) shows the differences.
+    
+  Source: https://blog.kotlin-academy.com/mastering-kotlin-scoped-and-higher-order-functions-23e2dd34d660
   </details>
 
 
