@@ -27,6 +27,11 @@
   Source: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html
   
   </details>
+* What is `JIT`-compiler? What are advantages and disadvantages?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is object in Java? 
   <details>
   <summary>Answer</summary>
@@ -1474,20 +1479,83 @@
   Source: https://guides.codepath.com/android/Understanding-the-Android-Application-Class
   </details>
 * What are tasks and backstack.
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What are different `launchMode` types available in Android?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What’s the difference between `Serializable` and `Parcelable`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What are runtime permissions? 
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * In which case the lifecycle methods call chain would be like this: `onCreate()` -> `onDestroy()`?
+  <details>
+  <summary>Answer</summary>
+  
+  If we call `System.exit()` or `finish()` in `onCreate()`.
+  </details>
 * Can any component be started before `Application` class? If yes, which component?
-* What is `JIT`-compiler? What are advantages and disadvantages?
+  <details>
+  <summary>Answer</summary>
+  
+  Yes. `Content Provider` is launching before the `Application` class.
+  </details>
 * How does the main thread work?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Explain the `AndroidManifest` file and why do you need this?
+  <details>
+  <summary>Answer</summary>
+  
+  The `manifest` file describes essential information about your app to the Android build tools, the Android operating system, and Google Play.
+  
+  The `manifest` file is required to declare the following:
+  
+  - The components of the app, which include all activities, services, broadcast receivers, and content providers.
+  
+  - The permissions that the app needs in order to access protected parts of the system or other apps. It also declares any permissions that other apps must have if they want to access content from this app.
+  
+  - The hardware and software features the app requires, which affects which devices can install the app from Google Play.
+  
+  Source: https://developer.android.com/guide/topics/manifest/manifest-intro
+  </details>
 * What is `ANR`? How to prevent it?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * How to reduce your app size?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `Wake Lock`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `AIDL`?
-* How does `ViewModel` work internally? 
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `TypedArray`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
     
 #### Context
 * What is `Context`?
@@ -1555,6 +1623,10 @@
   Source: https://www.geeksforgeeks.org/what-is-context-in-android/, https://medium.com/@banmarkovic/what-is-context-in-android-and-which-one-should-you-use-e1a8c6529652
   </details>
 * What if we launch `activity` with `app context`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
     
 #### Activity
 * What is `activity`?
@@ -1720,6 +1792,11 @@
 ## Architecture
 
 * What are the differences between `MVVM`, `MVP`, `MVI` approaches?.
+* How does `ViewModel` work internally? 
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `Moxy`? What is the main feature of this?
 * Describe `SOLID` principles.
 * What is `god object` and what examples in Android SDK do you know?
