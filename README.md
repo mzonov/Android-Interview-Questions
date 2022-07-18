@@ -1537,6 +1537,8 @@
   In this case, the activity can move from the task it starts to the task it has an affinity for, when that task comes to the foreground.
 
   For example, suppose that an activity that reports weather conditions in selected cities is defined as part of a travel app. It has the same affinity as other activities in the same app (the default app affinity) and it allows re-parenting with this attribute. When one of your activities starts the weather reporter activity, it initially belongs to the same task as your activity. However, when the travel app's task comes to the foreground, the weather reporter activity is reassigned to that task and displayed within it.
+    
+  Source: https://developer.android.com/guide/components/activities/tasks-and-back-stack#Affinities
   </details>
 * What’s the difference between `Serializable` and `Parcelable`?
   <details>
@@ -1809,16 +1811,60 @@
     
 #### Fragment
 * What is `fragment`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * How can we launch `fragment`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Describe `fragment` lifecycle. What does it happen during screen rotation?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `fragment manager`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * How can we transfer data between fragments?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `target fragment`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What is `retained fragment`? What are disadvantages?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * How can `activity` and `fragment` interact?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What’s the difference in `addToBackStack` between `replace()` and `add()` methods in `fragment manager`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What are the differences between `commit()`, `commitNow()` and `commitAllowingStateLoss()`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * Can we put fragments into each other?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
     
 #### Service
 * What is `Service`? What are different types of services?
