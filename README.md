@@ -1488,6 +1488,11 @@
   <summary>Answer</summary>
   
   </details>
+* What is `taskAffinity`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
 * What’s the difference between `Serializable` and `Parcelable`?
   <details>
   <summary>Answer</summary>
@@ -1808,6 +1813,7 @@
 * What is Firebase `topic`?
 * What is Push `channel`?
 * What is Firebase `token`?
+* What is Push `category`?
 
 #### UI
 * What’s the difference between `View` and `ViewGroup`? 
@@ -1905,9 +1911,15 @@
 * How we can create the `component`?
 * How to `inject` values at runtime in Dagger?
 * What is `scope` in Dagger?
+* How does the `scope` knows that it should be closed?
 * How we can create our own `scope`?
 * How to implement Dagger in multi module architecture?
 
+## Database
+* What are the differences between NoSql and Sql approaches?
+* Which approaches do you know in Android?
+* How would you choose between Realm and Room?
+* How would you resolve the migration issue in Room?
 
 ## Architecture
 
