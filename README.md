@@ -1661,6 +1661,8 @@
   
   The system invokes this callback just before the activity starts interacting with the user. At this point, the activity is at the top of the activity stack, and captures all user input. Most of an app’s core functionality is implemented in the `onResume()` method.
   
+  In multi-window mode, however, your activity may be fully visible even when it is in the Paused state. For example, when the user is in multi-window mode and taps the other window that does not contain your activity, your activity will move to the Paused state.
+  
   `onPause()`
   
   The system calls `onPause()` when the activity loses focus and enters a Paused state. This state occurs when, for example, the user taps the Back or Recents button. When the system calls `onPause()` for your activity, it technically means your activity is still partially visible, but most often is an indication that the user is leaving the activity, and the activity will soon enter the Stopped or Resumed state.
@@ -1668,14 +1670,20 @@
   An activity in the Paused state may continue to update the UI if the user is expecting the UI to update. Examples of such an activity include one showing a navigation map screen or a media player playing. Even if such activities lose focus, the user expects their UI to continue updating.
 
   You should **not** use `onPause()` to save application or user data, make network calls, or execute database transactions.
+  
+  *Note:* The app stays in this state until something happens to take focus away from the app.
 
   `onStop()`
   
   The system calls `onStop()` when the activity is no longer visible to the user. This may happen because the activity is being destroyed, a new activity is starting, or an existing activity is entering a Resumed state and is covering the stopped activity. In all of these cases, the stopped activity is no longer visible at all.
   
+  You should also use `onStop()` to perform relatively CPU-intensive shutdown operations. For example, if you can't find a more opportune time to save information to a database, you might do so during `onStop()`.
+  
+  *Note:* Once your activity is stopped, the system might destroy the process that contains the activity if the system needs to recover memory. Even if the system destroys the process while the activity is stopped, the system still retains the state of the `View` objects (such as text in an `EditText` widget) in a `Bundle` (a blob of key-value pairs) and restores them if the user navigates back to the activity.
+  
   `onRestart()`
   
-  The system invokes this callback when an activity in the Stopped state is about to restart. onRestart() restores the state of the activity from the time that it was stopped.
+  The system invokes this callback when an activity in the Stopped state is about to restart. onRestart() restores the state of the activity from the time that it was stopped. 
 
   This callback is always followed by `onStart()`.
   
@@ -1683,17 +1691,54 @@
   
   This callback is the final one that the activity receives. `onDestroy()` is usually implemented to ensure that all of an activity’s resources are released when the activity, or the process containing it, is destroyed.
   
+  Image of lifecycle: https://developer.android.com/guide/components/images/activity_lifecycle.png
+  
   Source: https://developer.android.com/guide/components/activities/intro-activities#mtal
   </details>
 * Which `activity` lifecycle method triggers during Dialog creation?
   <details>
   <summary>Answer</summary>
   
+  `onPause()`. As long as the activity is still partially visible but not in focus, it remains paused.
+  
+  Source: https://developer.android.com/guide/components/activities/activity-lifecycle#onpause
   </details>
+* What is `onSaveInstanceState()` method?
+  <details>
+  <summary>Answer</summary>
+  
+  As your activity begins to stop, the system calls the `onSaveInstanceState()` method so your activity can save state information to an instance state bundle. The default implementation of this method saves transient information about the state of the activity's view hierarchy, such as the text in an EditText widget or the scroll position of a `ListView` widget.
+
+  To save additional instance state information for your activity, you must override `onSaveInstanceState()` and add key-value pairs to the `Bundle` object that is saved in the event that your activity is destroyed unexpectedly.
+  
+  When your activity is recreated after it was previously destroyed, you can recover your saved instance state from the Bundle that the system passes to your activity. Both the `onCreate()` and `onRestoreInstanceState()` callback methods receive the same `Bundle` that contains the instance state information.
+
+  Because the `onCreate()` method is called whether the system is creating a new instance of your activity or recreating a previous one, you must check whether the state `Bundle` is null before you attempt to read it. If it is null, then the system is creating a new instance of the activity, instead of restoring a previous one that was destroyed.
+  
+  Source: https://developer.android.com/guide/components/activities/activity-lifecycle#save-simple,-lightweight-ui-state-using-onsaveinstancestate
+  </details>
+* Which methods are being called in multi-window mode?
+  <details>
+  <summary>Answer</summary>
+  
+  When the user switches from app A to app B, the system calls `onPause()` on app A, and `onResume()` on app B. It switches between these two methods each time the user toggles between apps.
+  
+  Source: https://developer.android.com/guide/components/activities/state-changes#multiwindow
+  </details>
+* Which methods are being called when user clicks on back button?
+  <details>
+  <summary>Answer</summary>
+  
+  If an activity is in the foreground, and the user presses or gestures Back, the activity transitions through the `onPause()`, `onStop()`, and `onDestroy()` callbacks. In addition to being destroyed, the activity is also removed from the back stack.
+  
+  Source: https://developer.android.com/guide/components/activities/state-changes#multiwindow
+  </details>
+
 * How can we transfer data between activities?
   <details>
   <summary>Answer</summary>
   
+  Via `Bundle` into which we can put the data during the `intent` object creation.
   </details>
 * What if we call `finish()` in `onCreate()` method of Activity?
   <details>
