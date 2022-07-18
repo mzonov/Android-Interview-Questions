@@ -1482,16 +1482,61 @@
   <details>
   <summary>Answer</summary>
   
+  **A task** is a collection of activities that users interact with when trying to do something in your app. These activities are arranged in a stack — **the back stack** — in the order in which each activity is opened.
+  
+  Source: https://developer.android.com/guide/components/activities/tasks-and-back-stack
   </details>
 * What are different `launchMode` types available in Android?
   <details>
   <summary>Answer</summary>
   
+  The launchMode attribute specifies an instruction on how the activity should be launched into a task. There are five different launch modes you can assign to the launchMode attribute:
+  
+  - `standard` (default). The system creates a new instance of the activity in the task from which it was started. The activity can be instantiated multiple times, each instance can belong to different tasks, and one task can have multiple instances.
+
+  - `singleTop`. If an instance of the activity already exists at the top of the current task, the system routes the intent to that instance through a call to its `onNewIntent()` method, rather than creating a new instance of the activity.
+  
+  - `singleTask`. The system creates the activity at the root of a new task or locates the activity on an existing task with the same affinity. If an instance of the activity already exists and is at the root of the task, the system routes the intent to existing instance through a call to its `onNewIntent()` method, rather than creating a new instance. Meanwhile all of the other activities on top of it are destroyed.
+
+  - `singleInstance`. Same as `singleTask`, except that the system doesn't launch any other activities into the task holding the instance. The activity is always the single and only member of its task; any activities started by this one open in a separate task.
+  
+  - `singleInstancePerTask`. The activity can only be running as the root activity of the task, the first activity that created the task, and therefore there will only be one instance of this activity in a task. In contrast to the `singleTask` launch mode, this activity can be started in multiple instances in different tasks if the `FLAG_ACTIVITY_MULTIPLE_TASK` or `FLAG_ACTIVITY_NEW_DOCUMENT` flag is set.
+  
+  Source: https://developer.android.com/guide/components/activities/tasks-and-back-stack
+  </details>
+* What are different Intent flags of launch mode types are available in Android?
+  <details>
+  <summary>Answer</summary>
+  
+  - `FLAG_ACTIVITY_NEW_TASK`. The same behavior as the `singleTask` launchMode.
+  
+  - `FLAG_ACTIVITY_SINGLE_TOP`. The same behavior as the `singleTop` launchMode.
+  
+  - `FLAG_ACTIVITY_CLEAR_TOP`. If the activity being started is already running in the current task, then instead of launching a new instance of that activity, all of the other activities on top of it are destroyed and this intent is delivered to the resumed instance of the activity (now on top), through `onNewIntent()`).
   </details>
 * What is `taskAffinity`?
   <details>
   <summary>Answer</summary>
   
+  An affinity indicates which task an activity prefers to belong to. By default, all the activities from the same app have an affinity for each other. So, by default, all activities in the same app prefer to be in the same task.
+  
+  You can modify the affinity for any given activity with the `taskAffinity` attribute of the `<activity>` element.
+  
+  The `taskAffinity` attribute takes a string value, which must be unique from the default package name declared in the `<manifest>` element, because the system uses that name to identify the default task affinity for the app.
+  
+  The affinity comes into play in two circumstances:
+
+  - When the intent that launches an activity contains the `FLAG_ACTIVITY_NEW_TASK` flag.
+  
+  A new activity is, by default, launched into the task of the activity that called `startActivity()`.
+
+  It's pushed onto the same back stack as the caller. However, if the intent passed to `startActivity()` contains the `FLAG_ACTIVITY_NEW_TASK` flag, the system looks for a different task to house the new activity. Often, it's a new task. However, it doesn't have to be. If there's already an existing task with the same affinity as the new activity, the activity is launched into that task. If not, it begins a new task.
+  
+  - When an activity has its `allowTaskReparenting` attribute set to `true`.
+  
+  In this case, the activity can move from the task it starts to the task it has an affinity for, when that task comes to the foreground.
+
+  For example, suppose that an activity that reports weather conditions in selected cities is defined as part of a travel app. It has the same affinity as other activities in the same app (the default app affinity) and it allows re-parenting with this attribute. When one of your activities starts the weather reporter activity, it initially belongs to the same task as your activity. However, when the travel app's task comes to the foreground, the weather reporter activity is reassigned to that task and displayed within it.
   </details>
 * What’s the difference between `Serializable` and `Parcelable`?
   <details>
