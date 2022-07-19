@@ -1814,6 +1814,25 @@
   <details>
   <summary>Answer</summary>
   
+  A `Fragment` represents a reusable portion of your app's UI. A `fragment` defines and manages its own layout, has its own lifecycle, and can handle its own input events. `Fragments` cannot live on their own - they must be hosted by an activity or another fragment. The `fragment`’s view hierarchy becomes part of, or attaches to, the host’s view hierarchy.
+  
+  Source: https://developer.android.com/guide/fragments
+  </details>
+* What is `DialogFragment`?
+  <details>
+  <summary>Answer</summary>
+  
+  Displays a floating dialog. Using this class to create a dialog is a good alternative to using the dialog helper methods in the `Activity` class, as fragments automatically handle the creation and cleanup of the `Dialog`.
+  
+  Source: https://developer.android.com/guide/fragments
+  </details>
+* What is `FragmentContainerView`?
+  <details>
+  <summary>Answer</summary>
+  
+  It is strongly recommended to always use a `FragmentContainerView` as the container for fragments, as `FragmentContainerView` includes fixes specific to fragments that other view groups such as `FrameLayout` do not provide.
+  
+  Source: https://developer.android.com/guide/fragments/create
   </details>
 * How can we launch `fragment`?
   <details>
@@ -1864,6 +1883,9 @@
   <details>
   <summary>Answer</summary>
   
+  Yes. Fragments are capable of hosting one or more child fragments. Inside a fragment, you can get a reference to the `FragmentManager` that manages the fragment's children through `getChildFragmentManager()`. If you need to access its host FragmentManager, you can use `getParentFragmentManager()`.
+  
+  Source: https://developer.android.com/guide/fragments/fragmentmanager
   </details>
     
 #### Service
@@ -2019,6 +2041,9 @@
   <details>
   <summary>Answer</summary>
   
+  **TODO:**
+  
+  Research https://arkadiuszchmura.com/posts/how-viewmodels-survive-configuration-changes/, https://developer.android.com/topic/libraries/architecture/viewmodel
   </details>
 * What is `Moxy`? What is the main feature of this?
 * Describe `SOLID` principles.
