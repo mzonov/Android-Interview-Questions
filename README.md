@@ -1822,9 +1822,9 @@
   <details>
   <summary>Answer</summary>
   
-  Displays a floating dialog. Using this class to create a dialog is a good alternative to using the dialog helper methods in the `Activity` class, as fragments automatically handle the creation and cleanup of the `Dialog`.
+  A DialogFragment is a special fragment subclass that is designed for creating and hosting dialogs. Strictly speaking, you do not need to host your dialog within a fragment, but doing so allows the FragmentManager to manage the state of the dialog and automatically restore the dialog when a configuration change occurs.
   
-  Source: https://developer.android.com/guide/fragments
+  Source: https://developer.android.com/guide/fragments/dialogs
   </details>
 * What is `FragmentContainerView`?
   <details>
@@ -1838,21 +1838,55 @@
   <details>
   <summary>Answer</summary>
   
+  To display a fragment within a layout container, use the `FragmentManager` to create a `FragmentTransaction`. Within the transaction, you can then perform an `add()` or `replace()` operation on the container.
+  
+  Source: https://developer.android.com/guide/fragments/fragmentmanager
   </details>
 * Describe `fragment` lifecycle. What does it happen during screen rotation?
   <details>
   <summary>Answer</summary>
   
+  The `onAttach()` callback is invoked when the fragment has been added to a `FragmentManager` and is attached to its host activity. At this point, the fragment is active, and the `FragmentManager` is managing its lifecycle state.
+  
+  The `onDetach()` callback is invoked when the fragment has been removed from a `FragmentManager` and is detached from its host activity. The fragment is no longer active and can no longer be retrieved using `findFragmentById()`.
+  
+  Source: https://developer.android.com/guide/fragments/lifecycle
+  </details>
+* What's the difference between fragment lifecycle and fragment view lifecycle?
+  <details>
+  <summary>Answer</summary>
+  
+  Pic: https://developer.android.com/static/images/guide/fragments/fragment-view-lifecycle.png
+  
+  Source: https://developer.android.com/guide/fragments/lifecycle#states
   </details>
 * What is `fragment manager`?
   <details>
   <summary>Answer</summary>
   
+  The `FragmentManager` manages the fragment back stack. At runtime, the `FragmentManager` can perform back stack operations like adding or removing fragments in response to user interactions. Each set of changes are committed together as a single unit called a `FragmentTransaction`.
+  
+  Source: https://developer.android.com/guide/fragments/fragmentmanager
   </details>
 * How can we transfer data between fragments?
   <details>
   <summary>Answer</summary>
   
+  - Via shared `ViewModel`
+  
+  - Via arguments (bundle)
+  
+  - Using Fragment Result API
+  
+  Source: https://developer.android.com/guide/fragments/communicate
+  </details>
+* Why shouldn't we to use the fragment constructor to pass the data?
+  <details>
+  <summary>Answer</summary>
+  
+  By default, the `FragmentManager` uses a `FragmentFactory` that the framework provides to instantiate a new instance of your `fragment`. This default factory uses reflection to find and invoke a no-argument constructor for your `fragment`. This means that you can't use this default factory to provide dependencies to your `fragment`. It also means that any custom constructor you used to create your `fragment` the first time is not used during recreation by default.
+  
+  Source: https://developer.android.com/guide/fragments/fragmentmanager#dependencies
   </details>
 * What is `target fragment`?
   <details>
@@ -1868,16 +1902,32 @@
   <details>
   <summary>Answer</summary>
   
+  - Via shared `ViewModel`
+  
+  - Via `interface`
   </details>
 * What’s the difference in `addToBackStack` between `replace()` and `add()` methods in `fragment manager`?
   <details>
   <summary>Answer</summary>
+  
   
   </details>
 * What are the differences between `commit()`, `commitNow()` and `commitAllowingStateLoss()`?
   <details>
   <summary>Answer</summary>
   
+  Calling `commit()` doesn't perform the transaction immediately. Rather, the transaction is scheduled to run on the main UI thread as soon as it is able to do so. If necessary, however, you can call `commitNow()` to run the fragment transaction on your UI thread immediately.
+
+  Note that `commitNow` is incompatible with `addToBackStack`. Alternatively, you can execute all pending `FragmentTransactions` submitted by `commit()` calls that have not yet run by calling `executePendingTransactions()`. This approach is compatible with `addToBackStack`.
+
+  For the vast majority of use cases, `commit()` is all you need.
+  </details>
+* How would work the back button if previous fragments were added within one transaction?
+  <details>
+  <summary>Answer</summary>
+  If you added or removed multiple fragments within a single transaction, all of those operations are undone when the back stack is popped.
+  
+  Source: https://developer.android.com/guide/fragments/fragmentmanager
   </details>
 * Can we put fragments into each other?
   <details>
@@ -1886,6 +1936,14 @@
   Yes. Fragments are capable of hosting one or more child fragments. Inside a fragment, you can get a reference to the `FragmentManager` that manages the fragment's children through `getChildFragmentManager()`. If you need to access its host FragmentManager, you can use `getParentFragmentManager()`.
   
   Source: https://developer.android.com/guide/fragments/fragmentmanager
+  </details>
+* How to support multiple back stacks?
+  <details>
+  <summary>Answer</summary>
+  
+  In some cases, your app might need to support multiple back stacks. A common example is if your app uses a bottom navigation bar. `FragmentManager` allows you to support multiple back stacks with the `saveBackStack()` and `restoreBackStack()` methods. These methods allow you to swap between back stacks by saving one back stack and restoring a different one.
+  
+  `saveBackStack()` works similarly to calling `popBackStack()` with the optional name parameter: the specified transaction and all transactions after it on the stack are popped. The difference is that `saveBackStack()` saves the state of all fragments in the popped transactions.
   </details>
     
 #### Service
