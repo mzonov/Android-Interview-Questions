@@ -1897,6 +1897,11 @@
   <details>
   <summary>Answer</summary>
   
+  If we add the setting `setRetainInstance(true)` our fragment won't destroy when activity recreates.
+  
+  We should use it if our fragment is without view. Otherwise it can hold references on activity what triggers memory leaks.
+  
+  This method is deprecated. 
   </details>
 * How can `activity` and `fragment` interact?
   <details>
