@@ -1608,6 +1608,28 @@
   <summary>Answer</summary>
   
   </details>
+* How does `ViewModel` survives during screen orientation? 
+  <details>
+  <summary>Answer</summary>
+  
+  1. Fragment or Activity keep `ViewModel` in `ViewModelStore`. This class basically is a wrapper of HashMap<String, ViewModel>.
+    
+  2. If there is no `ViewModel` of our Activity/Fragment in `ViewModelStore`, new `ViewModel` will be created.
+    
+  3. How does the `ViewModelStore` survives during screen orientation? We're getting this class from `NonConfigurationInstances` which survives configuration changes.
+    
+  4. When activity is destroying it writes `ViewModelStore` in `NonConfigurationInstances` with `onRetainNonConfigurationInstance()` method.
+    
+    `onRetainNonConfigurationInstance()` in documentation:
+    
+    ```
+    Called by the system, as part of destroying an activity due to a configuration change, when it is known that a new instance will immediately be created for the new configuration. You can return any object you like here, including the activity instance itself, which can later be retrieved by calling getLastNonConfigurationInstance() in the new activity instance.
+    ```
+    
+  5. During the activity's recreation it gets old `ViewModelStore` from `NonConfigurationInstances` with `onRetainNonConfigurationInstance()` or creates new `ViewModelStore` if there is no old `ViewModelStore`.
+    
+  Source: https://arkadiuszchmura.com/posts/how-viewmodels-survive-configuration-changes/, 
+  </details>
     
 #### Context
 * What is `Context`?
@@ -2172,14 +2194,6 @@
 ## Architecture
 
 * What are the differences between `MVVM`, `MVP`, `MVI` approaches?.
-* How does `ViewModel` work internally? 
-  <details>
-  <summary>Answer</summary>
-  
-  **TODO:**
-  
-  Research https://arkadiuszchmura.com/posts/how-viewmodels-survive-configuration-changes/, https://developer.android.com/topic/libraries/architecture/viewmodel
-  </details>
 * What is `Moxy`? What is the main feature of this?
 * Describe `SOLID` principles.
 * What is `god object` and what examples in Android SDK do you know?
