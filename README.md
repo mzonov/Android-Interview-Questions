@@ -1892,6 +1892,7 @@
   <details>
   <summary>Answer</summary>
   
+  Target fragment is used for setting result to calling fragment like `startActivityForResult`.
   </details>
 * What is `retained fragment`? What are disadvantages?
   <details>
@@ -1911,11 +1912,13 @@
   
   - Via `interface`
   </details>
-* What’s the difference in `addToBackStack` between `replace()` and `add()` methods in `fragment manager`?
+* What’s the difference between `replace()` and `add()` methods in `fragment manager`?
   <details>
   <summary>Answer</summary>
   
-  
+  `add()` method keeps on adding fragments on top of the previous fragment in `FragmentContainer`.
+
+  While `replace()` methods clears all the previous Fragment from Containers and then add it in `FragmentContainer`.
   </details>
 * What are the differences between `commit()`, `commitNow()` and `commitAllowingStateLoss()`?
   <details>
