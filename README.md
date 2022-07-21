@@ -1999,6 +1999,8 @@
     
     The service is created when another component calls startService(). The service then runs indefinitely and must stop itself by calling stopSelf(). Another component can also stop the service by calling stopService(). When the service is stopped, the system destroys it.
     
+  Picture of lifecycle: https://developer.android.com/static/images/service_lifecycle.png
+  
   Source: https://developer.android.com/guide/components/services#Lifecycle
   </details>
 * What should return `onStartCommand()` method and what does it mean?
@@ -2025,7 +2027,7 @@
   <details>
   <summary>Answer</summary>
   
-  
+  Yes. But since the toast works only with main thread we need to use Handler to show Toast from Service.
   </details>
 
 #### Content Provider
