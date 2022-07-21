@@ -1956,10 +1956,77 @@
     
 #### Service
 * What is `Service`? What are different types of services?
-* `Bound Service` vs `Unbounded service`.
-* How to start a `Foreground Service`?
-* What is Sticky Intent in Android?
+  <details>
+  <summary>Answer</summary>
+  
+  A `Service` is an application component that can perform long-running operations in the background. It does not provide a user interface. Once started, a service might continue running for some time, even after the user switches to another application. Additionally, a component can bind to a service to interact with it and even perform interprocess communication (`IPC`). For example, a service can handle network transactions, play music, perform file I/O, or interact with a content provider, all from the background.
+    
+  Source: https://developer.android.com/guide/components/services
+  </details>
+* What `service` types do you know?
+  <details>
+  <summary>Answer</summary>
+  
+  - **Foreground**. 
+    
+    It performs some operation that is noticeable to the user. For example, an audio app would use a foreground service to play an audio track. Foreground services must display a Notification. This notification cannot be dismissed unless the service is either stopped or removed from the foreground. Foreground services continue running even when the user isn't interacting with the app.
+
+  - **Background**. A background service performs an operation that isn't directly noticed by the user. For example, if an app used a service to compact its storage, that would usually be a background service. 
+    
+  - **Bound**. A service is bound when an application component binds to it by calling `bindService()`. A bound service offers a client-server interface that allows components to interact with the service, send requests, receive results, and even do so across processes with interprocess communication (`IPC`). A bound service runs only as long as another application component is bound to it. Multiple components can bind to the service at once, but when all of them unbind, the service is destroyed.
+    
+  Source: https://developer.android.com/guide/components/services#Types-of-services
+  </details>
+* How would you choose between `Thread` and `Service`?
+  <details>
+  <summary>Answer</summary>
+  
+  A `service` is simply a component that can run in the background, even when the user is not interacting with your application.
+    
+  If you must perform work outside of your main thread, but only while the user is interacting with your application, you should instead create a new `thread` in the context of another application component.
+    
+  Source: https://developer.android.com/guide/components/services#Choosing-service-thread
+  </details>
+* What's the difference between bound and unbound service?
+  <details>
+  <summary>Answer</summary>
+  
+  - Bound service. 
+    
+    The service is created when another component (a client) calls `bindService()`. The client then communicates with the service through an `IBinder` interface. The client can close the connection by calling `unbindService()`. Multiple clients can bind to the same service and when all of them unbind, the system destroys the service. The service does not need to stop itself.
+    
+  - Unbound service.
+    
+    The service is created when another component calls startService(). The service then runs indefinitely and must stop itself by calling stopSelf(). Another component can also stop the service by calling stopService(). When the service is stopped, the system destroys it.
+    
+  Source: https://developer.android.com/guide/components/services#Lifecycle
+  </details>
+* What should return `onStartCommand()` method and what does it mean?
+  <details>
+  <summary>Answer</summary>
+  
+  It should return one of these constants:
+    
+  - `START_NOT_STICKY`. If the system kills the service after `onStartCommand()` returns, do not recreate the service unless there are pending intents to deliver. This is the safest option to avoid running your service when not necessary and when your application can simply restart any unfinished jobs.
+    
+  - `START_STICKY`. If the system kills the service after `onStartCommand()` returns, recreate the service and call `onStartCommand()`, but *do not redeliver the last intent*. Instead, the system calls `onStartCommand()` with a null intent unless there are pending intents to start the service. In that case, those intents are delivered. This is suitable for media players (or similar services) that are not executing commands but are running indefinitely and waiting for a job.
+    
+  - `START_REDELIVER_INTENT`. If the system kills the service after `onStartCommand()` returns, recreate the service and call `onStartCommand()` *with the last intent* that was delivered to the service. Any pending intents are delivered in turn. This is suitable for services that are actively performing a job that should be immediately resumed, such as downloading a file.
+    
+  Source: https://developer.android.com/guide/components/services#ExtendingService
+  </details>
+* Which context can we use to start `service`?
+  <details>
+  <summary>Answer</summary>
+  
+  We can use both. 
+  </details>
 * Can we show `toast` from `service`? 
+  <details>
+  <summary>Answer</summary>
+  
+  
+  </details>
 
 #### Content Provider
 * What is `ContentProvider`?
@@ -2121,3 +2188,4 @@
 * Describe 3 main principles of `OOP`.
 * What’s the difference between `inheritance` and `composition`?
 * What's the difference between `abstract factory` and `factory pattern`?
+* What is Inversion of Control principle about?
