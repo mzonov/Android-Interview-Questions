@@ -2053,12 +2053,93 @@
   </details>
 
 #### Content Provider
-* What is `ContentProvider`?
+* What is Content provider?
+  <details>
+  <summary>Answer</summary>
+  
+  Content providers can help an application manage access to data stored by itself, stored by other apps, and provide a way to share data with other apps. They encapsulate the data, and provide mechanisms for defining data security. Content providers are the standard interface that connects data in one process with code running in another process.
+  
+  Source: https://developer.android.com/guide/topics/providers/content-providers
+  </details>
 * What should we do if we want to share our app's data via `ContentProvider`?
+  <details>
+  <summary>Answer</summary>
+  
+  When you want to access data in a content provider, you use the `ContentResolver` object in your application's `Context` to communicate with the provider as a client. The `ContentResolver` object communicates with the provider object, an instance of a class that implements `ContentProvider`. The provider object receives data requests from clients, performs the requested action, and returns the results. This object has methods that call identically-named methods in the provider object, an instance of one of the concrete subclasses of `ContentProvider`. The `ContentResolver` methods provide the basic "CRUD" (create, retrieve, update, and delete) functions of persistent storage.
+  
+  Source: https://developer.android.com/guide/topics/providers/content-provider-basics#ClientProvider
+  </details>
     
 #### Broadcast Receiver
-* What is a `BroadcastReceiver`?
+* What is a broadcast?
+  <details>
+  <summary>Answer</summary>
+  Android apps can send or receive broadcast messages from the Android system and other Android apps, similar to the publish-subscribe design pattern. These broadcasts are sent when an event of interest occurs. For example, the Android system sends broadcasts when various system events occur, such as when the system boots up or the device starts charging. Apps can also send custom broadcasts, for example, to notify other apps of something that they might be interested in (for example, some new data has been downloaded).
+
+Apps can register to receive specific broadcasts. When a broadcast is sent, the system automatically routes broadcasts to apps that have subscribed to receive that particular type of broadcast.
+
+  Source: https://developer.android.com/guide/components/broadcasts
+  
+  </details>
+* What are the types of broadcast receivers do you know?
+  <details>
+  <summary>Answer</summary>
+  
+  - Manifest-declared receivers.
+  
+  If you declare a broadcast receiver in your manifest, the system launches your app (if the app is not already running) when the broadcast is sent.
+  
+  *Note:* If your app targets API level 26 or higher, you cannot use the manifest to declare a receiver for implicit broadcasts (broadcasts that do not target your app specifically), except for a few implicit broadcasts that are exempted from that restriction. In most cases, you can use scheduled jobs instead.
+  
+  - Montext-registered receivers.
+  
+  Context-registered receivers receive broadcasts as long as their registering context is valid. For an example, if you register within an `Activity` context, you receive broadcasts as long as the activity is not destroyed. If you register with the Application context, you receive broadcasts as long as the app is running.
+  </details>
 * What is a `LocalBroadcastManager`?
+  <details>
+  <summary>Answer</summary>
+  
+  For obvious reasons, global broadcasts must never contain sensitive information. You can, however, broadcast such information locally using the `LocalBroadcastManager` class, which is a part of the Android Support Library.
+
+  The `LocalBroadcastManager` is much more efficient as it doesn’t need inter-process communication.
+
+  Below are some of its benefits:
+
+  - Broadcast data won’t leave your app, so don’t need to worry about leaking private data.
+  
+  - It is not possible for other applications to send these broadcasts to your app, so you don’t need to worry about having security holes they can exploit.
+  
+  - It is more efficient than sending a global broadcast through the system.
+  
+  - No overhead of system-wide broadcast.
+  </details>
+* What restrictions does `BroadcastReceiver` have?
+  <details>
+  <summary>Answer</summary>
+  
+  - Android 9
+  Beginning with Android 9 (API level 28), The `NETWORK_STATE_CHANGED_ACTION` broadcast doesn't receive information about the user's location or personally identifiable data.
+
+  In addition, if your app is installed on a device running Android 9 or higher, system broadcasts from Wi-Fi don't contain SSIDs, BSSIDs, connection information, or scan results. To get this information, call `getConnectionInfo()` instead.
+
+  - Android 8.0
+  
+  Beginning with Android 8.0 (API level 26), the system imposes additional restrictions on manifest-declared receivers.
+
+  If your app targets Android 8.0 or higher, you cannot use the manifest to declare a receiver for most implicit broadcasts (broadcasts that don't target your app specifically). You can still use a context-registered receiver when the user is actively using your app.
+
+  - Android 7.0
+  
+  Android 7.0 (API level 24) and higher don't send the following system broadcasts:
+
+  `ACTION_NEW_PICTURE`
+  
+  `ACTION_NEW_VIDEO`
+  
+  Also, apps targeting Android 7.0 and higher must register the `CONNECTIVITY_ACTION` broadcast using `registerReceiver(BroadcastReceiver, IntentFilter)`. Declaring a receiver in the manifest doesn't work.
+  
+  Source: https://developer.android.com/guide/components/broadcasts#changes-system-broadcasts
+  </details>
 
 #### Intent
 * What is `Intent`? What types of `Intent` do you know?
@@ -2197,11 +2278,10 @@
 * What is `Moxy`? What is the main feature of this?
 * Describe `SOLID` principles.
 * What is `god object` and what examples in Android SDK do you know?
-* What are the differences between `dependency injection`, `dependency inversion` and `control inversion`?
+* What are the differences between `dependency injection`, `dependency inversion` and `inversion of control`?
 * Describe `Clean Architecture` and decompose it on layers.
 * Describe `Single Activity` principle.
 * What is `multi module` architecture? What are advantages of this?
 * Describe 3 main principles of `OOP`.
 * What’s the difference between `inheritance` and `composition`?
 * What's the difference between `abstract factory` and `factory pattern`?
-* What is Inversion of Control principle about?
