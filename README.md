@@ -2144,9 +2144,89 @@
   </details>
 
 #### Intent
-* What is `Intent`? What types of `Intent` do you know?
+* What is `Intent`?
+  <details>
+  <summary>Answer</summary>
+  
+  An `Intent` is a messaging object you can use to request an action from another app component. Although intents facilitate communication between components in several ways, there are three fundamental use cases:
+  
+  - Starting an `activity`
+
+  - Starting a `service`
+  
+  - Delivering a `broadcast`
+  
+  Source: https://developer.android.com/guide/components/intents-filters
+  </details>
+* What `Intent` types do you know?
+  <details>
+  <summary>Answer</summary>
+  - **Explicit intents**. Specify which application will satisfy the intent, by supplying either the target app's package name or a fully-qualified component class name. You'll typically use an explicit intent to start a component in your own app, because you know the class name of the activity or service you want to start. For example, you might start a new activity within your app in response to a user action, or start a service to download a file in the background.
+  
+  - **Implicit intents**. Do not name a specific component, but instead declare a general action to perform, which allows a component from another app to handle it. For example, if you want to show the user a location on a map, you can use an implicit intent to request that another capable app show a specified location on a map.
+  
+  
+  Source: https://developer.android.com/guide/components/intents-filters#Types
+  </details>
 * What is `IntentFilter`? 
+  <details>
+  <summary>Answer</summary>
+  
+  To advertise which implicit intents your app can receive, declare one or more intent filters for each of your app components with an `<intent-filter>` element in your manifest file. Each intent filter specifies the type of intents it accepts based on the intent's action, data, and category. The system delivers an implicit intent to your app component only if the intent can pass through one of your intent filters.
+  
+  Inside the `<intent-filter>`, you can specify the type of intents to accept using one or more of these three elements:
+
+  - `<action>`. Declares the intent action accepted, in the `name` attribute. The value must be the literal string value of an action, not the class constant.
+  
+  - `<data>`. Declares the type of data accepted, using one or more attributes that specify various aspects of the data `URI` (`scheme`, `host`, `port`, `path`) and MIME type.
+
+  - `<category>`. Declares the intent category accepted, in the `name` attribute. The value must be the literal string value of an action, not the class constant.
+  
+  Source: https://developer.android.com/guide/components/intents-filters#Receiving
+  </details>
 * What is `PendingIntent` in Android?
+  <details>
+  <summary>Answer</summary>
+  
+  A `PendingIntent` object is a wrapper around an `Intent` object. The primary purpose of a `PendingIntent` is to grant permission to a foreign application to use the contained `Intent` as if it were executed from your app's own process.
+  
+  Major use cases for a pending intent include the following:
+
+  - Declaring an `intent` to be executed when the user performs an action with your `Notification`
+  
+  - Declaring an `intent` to be executed when the user performs an action with your `App Widget`
+  
+  - Declaring an `intent` to be executed at a specified future time (the Android system's `AlarmManager` executes the `Intent`).
+  
+  Source: https://developer.android.com/guide/components/intents-filters#PendingIntent
+  </details>
+* What are restrictions around `PendingIntent`?
+  <details>
+  <summary>Answer</summary>
+  
+  If your app targets Android 12 or higher, you must specify the mutability of each PendingIntent object that your app creates. To declare that a given PendingIntent object is mutable or immutable, use the `PendingIntent.FLAG_MUTABLE` or `PendingIntent.FLAG_IMMUTABLE` flag, respectively.
+
+  If your app attempts to create a PendingIntent object without setting either mutability flag, the system throws an `IllegalArgumentException`
+  
+  In most cases, your app should create immutable `PendingIntent` objects. If a `PendingIntent` object is immutable, then other apps cannot modify the intent to adjust the result of invoking the intent.
+
+  Source: https://developer.android.com/guide/components/intents-filters#DeclareMutabilityPendingIntent
+  </details>
+* When should we use mutable `PendingIntent`?
+  <details>
+  <summary>Answer</summary>
+  
+  - Supporting direct reply actions in notifications. The direct reply requires a change to the clip data in the PendingIntent object that's associated with the reply.
+  
+  - Associating notifications with the Android Auto framework, using instances of `CarAppExtender`.
+
+  - Placing conversations in bubbles using instances of `PendingIntent`. A mutable `PendingIntent` object allows the system to apply the correct flags, such as `FLAG_ACTIVITY_MULTIPLE_TASK` and `FLAG_ACTIVITY_NEW_DOCUMENT`.
+  
+  - Requesting device location information by calling `requestLocationUpdates()` or similar APIs. The mutable PendingIntent object allows the system to add intent extras that represent location lifecycle events. These events include a change in location and a provider becoming available.
+
+  - Scheduling alarms using `AlarmManager`. The mutable `PendingIntent` object allows the system to add the `EXTRA_ALARM_COUNT` intent extra. This extra represents the number of times that a repeating alarm has been triggered. By containing this extra, the intent can accurately notify an app as to whether a repeating alarm was triggered multiple times, such as when the device was asleep.
+
+  </details>
 
 #### Data saving
 * How to persist data in an Android app? 
