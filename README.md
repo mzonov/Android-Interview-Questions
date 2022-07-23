@@ -2330,10 +2330,59 @@
 
 #### Coroutines
 * What is `Coroutine`?
+  <details>
+  <summary>Answer</summary>
+    
+  A coroutine is an instance of suspendable computation. It is conceptually similar to a thread, in the sense that it takes a block of code to run that works concurrently with the rest of the code. However, a coroutine is not bound to any particular thread. It may suspend its execution in one thread and resume in another one.
+
+  Coroutines can be thought of as light-weight threads, but there is a number of important differences that make their real-life usage very different from threads.
+    
+  Coroutines are less resource-intensive than JVM threads. Code that exhausts the JVM's available memory when using threads can be expressed using coroutines without hitting resource limits
+    
+  Source: https://kotlinlang.org/docs/coroutines-basics.html
+  </details>
+* What is `Continuation`?
+  <details>
+  <summary>Answer</summary>
+    
+  Code block inside a coroutine compiles into separate java class named `Continuation`.
+    
+  `Continuation` is like a callback for `suspend` functions.
+    
+  The main goal of `continuation` is to assure that the code after `suspend` functions will be invoked only after `suspend` was finished.
+    
+  Every `suspend` function has the `Continuation` reference. After `suspend` was finished it executes `invokeSuspend()` function of `Continuation`.
+  </details>
 * What is `Coroutine Context`?
+  <details>
+  <summary>Answer</summary>
+    
+  That is a context where is coroutine works.
+    
+  It consists of following parts:
+    
+  - Job
+    
+  - Dispatcher  
+  
+  - Exception Handler
+    
+  - Coroutine name
+  </details>
 * What is `Job`?
+  <details>
+  <summary>Answer</summary>
+    
+  </details>
 * What is `Scope`?
 * What is `Dispatcher`?
+  <details>
+  <summary>Answer</summary>
+    
+  It determines what thread or threads the corresponding coroutine uses for its execution. The coroutine dispatcher can confine coroutine execution to a specific thread, dispatch it to a thread pool, or let it run unconfined.
+
+
+  </details>
 * How can we cancel coroutine?
 * How can we change dispatcher inside coroutine?
 * What is `Channel`?
