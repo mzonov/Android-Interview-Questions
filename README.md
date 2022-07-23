@@ -2228,17 +2228,16 @@
 
   </details>
 
-#### Data saving
+#### Data persistance
 * How to persist data in an Android app? 
-* What is `ORM`?
-* How would you preserve Activity state during a screen rotation?
-* Explain `Scoped Storage` in Android.
+* Describe how `Scoped Storage` works in Android.
+* What is `SharedPreferences`?
+* What's the difference of`commit()` and `apply()` in `SharedPreferences?
 * How to encrypt data in Android?
-* What is `commit()` and `apply()` in SharedPreferences?
 
 #### Memory
 * What is the `onTrimMemory()` method? 
-* Why does the `OutOfMemory` happen?
+* Why does the `OutOfMemoryError` happen?
 * How we can find memory leaks in Android app?
 
 #### Push Notifications
@@ -2263,14 +2262,18 @@
 * What are `include` and `merge` tags in xml?
 * What’s the difference between `DataBinding` и `ViewBinding`?
 * What is `Window`? Can application has one or multiple Window?
-* Tell me about main lifecycle methods of `View`.
-* What parameter should we handle in `onMeasure()`?
 * What need we do for touches and gestures overriding?
 * Describe briefly how `RecyclerView` works.
 * What two methods must we implement in `DiffUtil`? What do they mean?
 * When should we use `CoordinatorLayout`?
 * How do the Touch Control and Events work in Android?
 
+#### Custom views
+* What's the difference between compound view and custom view?
+* Describe main lifecycle methods of `View`.
+* What parameter should we handle in `onMeasure()`?
+* How to redraw the custom view? What options do we have?
+    
 #### Network
 * What is `REST`?
 * What is `OkHttp`?
@@ -2353,6 +2356,7 @@
 * Which approaches do you know in Android?
 * How would you choose between Realm and Room?
 * How would you resolve the migration issue in Room?
+* What is `ORM`?
 
 ## Architecture
 
