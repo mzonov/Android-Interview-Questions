@@ -2229,7 +2229,7 @@
   </details>
 
 #### Data persistance
-* How to persist data in an Android app? 
+* How can we persist any data in an Android app? 
 * Describe how `Scoped Storage` works in Android.
 * What is `SharedPreferences`?
 * What's the difference of`commit()` and `apply()` in `SharedPreferences?
@@ -2241,11 +2241,11 @@
 * How we can find memory leaks in Android app?
 
 #### Push Notifications
-* How can we handle Push Notifications?
+* How can we handle push notifications?
 * What is Firebase `topic`?
-* What is Push `channel`?
+* What is push `channel`?
 * What is Firebase `token`?
-* What is Push `category`?
+* What is push `category`?
 
 #### UI
 * What’s the difference between `View` and `ViewGroup`? 
@@ -2254,7 +2254,7 @@
 * What ways can we implement `Splash Screen`?
 * What are `resources`?
 * Why should we put strings and dimens into resources files?
-* What are weight and orientation in `LinearLayout`? What is affect without orientation?
+* What are `weight` and `orientation` in `LinearLayout`? What if we ignore `orientation`?
 * `ConstraintLayout`: what are `bias`, `barrier`, `chain`, `guideline`.
 * How can we maintain different screen sizes?
 * What’s the difference between `dp` vs `sp`?
@@ -2267,10 +2267,11 @@
 * What two methods must we implement in `DiffUtil`? What do they mean?
 * When should we use `CoordinatorLayout`?
 * How do the Touch Control and Events work in Android?
+* What is 9-patch image?
 
 #### Custom views
 * What's the difference between compound view and custom view?
-* Describe main lifecycle methods of `View`.
+* Describe lifecycle methods of `View`.
 * What parameter should we handle in `onMeasure()`?
 * How to redraw the custom view? What options do we have?
     
@@ -2308,14 +2309,12 @@
 * What are actual and deprecated ways of multithreading implementation in Android development?
 * What is `WorkManager`?
 * Does `WorkManager` have any restrictions?
-* When to use an Android service and when to use a thread
 
 #### RxJava
 * Describe the reactive approach.
-* What are `subscribeOn` and `observeOn`? Is their order in chain important?
 * What is scheduler in `RxJava`?
-* What’s the difference between `IO` and `Computation` scheduler?
-* When should we use `IO` and `Computation` schedulers? Is there any clear separation?
+* What’s the difference between `IO` and `Computation` scheduler? Is there any clear separation?
+* What are `subscribeOn` and `observeOn`? Is their order in chain important?
 * What `source types` do you know? 
 * What’s the difference between `cold` and `hot` source? 
 * What’s the difference between `Observable` and `Flowable`?
@@ -2325,6 +2324,7 @@
 * What’s the difference between `map` and `flatmap`?
 * How can we implement searching with these requirements: a) limit network requests with 500ms of idle; b) prevent network requests of similar strings.
 * What is `Subject`? What types of this do you know?
+* What `subject` is `livedata` approach similar with?
 * What ways of error handling do you know?
 * Does `zip` operator acts in parallel or sequentially?
 
@@ -2333,9 +2333,9 @@
 * What is `Coroutine Context`?
 * What is `Job`?
 * What is `Scope`?
-* How we can cancel coroutine?
-* How we can change dispatcher inside coroutine?
 * What is `Dispatcher`?
+* How can we cancel coroutine?
+* How can we change dispatcher inside coroutine?
 * What is `Channel`?
 * What is `Flow`?
 
@@ -2360,13 +2360,15 @@
 
 ## Architecture
 
-* What are the differences between `MVVM`, `MVP`, `MVI` approaches?.
+* What are the differences between `MVVM`, `MVP`, `MVI` approaches?
+* How would you choose between `MV`-approaches?
 * What is `Moxy`? What is the main feature of this?
 * Describe `SOLID` principles.
 * What is `god object` and what examples in Android SDK do you know?
 * What are the differences between `dependency injection`, `dependency inversion` and `inversion of control`?
 * Describe `Clean Architecture` and decompose it on layers.
 * Describe `Single Activity` principle.
+* What is singleton? What pros and cons do you know?
 * What is `multi module` architecture? What are advantages of this?
 * Describe 3 main principles of `OOP`.
 * What’s the difference between `inheritance` and `composition`?
