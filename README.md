@@ -245,6 +245,8 @@
   No. Because the constructor is called when an object of a class is created. 
   </details>
 
+* Where are `static` components stored?
+
 #### Nested and Inner classes
 * What is a `nested class`?
   <details>
@@ -681,6 +683,7 @@
   
   All classes have `get` and `set` methods that work like reads and writes on `volatile` variables. That is, a `set` has a `happens-before` relationship with any subsequent get on the same variable. The atomic `compareAndSet` method also has these memory consistency features, as do the simple atomic arithmetic methods that apply to integer atomic variables.
   </details>
+* What's the difference between atomic class and `volatile`?
 * What is deadlock? 
   <details>
   <summary>Answer</summary>
@@ -812,7 +815,7 @@
   
   Source: https://www.geeksforgeeks.org/what-is-memory-leak-how-can-we-avoid/
   </details>
-* How do you identify a `Memory Leak` in Android a?
+* How do you identify a `Memory Leak` in Android?
 
   <details>
   <summary>Answer</summary>
@@ -1265,6 +1268,12 @@
   </details>
     
 * Why shouldn't we use `data class` everywhere?
+  <details>
+  <summary>Answer</summary>
+  
+  Because a lot of code would be generated. So build time and APK size would be increased.
+  
+  </details>
     
 * Can we inherit class from data class?
   <details>
@@ -1378,6 +1387,11 @@
 ## Collections
 
 * What is type erasure?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
+* What's the reason for type erasure?
   <details>
   <summary>Answer</summary>
   
@@ -1604,6 +1618,17 @@
   
   </details>
 * What is `TypedArray`?
+  <details>
+  <summary>Answer</summary>
+  
+  </details>
+* What is Doze Mode?
+  <details>
+  <summary>Answer</summary>
+  
+  TODO: read about JobScheduler
+  </details>
+* How to do smth in our app during Doze Mode?
   <details>
   <summary>Answer</summary>
   
@@ -2422,3 +2447,4 @@
 * Describe 3 main principles of `OOP`.
 * What’s the difference between `inheritance` and `composition`?
 * What's the difference between `abstract factory` and `factory pattern`?
+* How would you implement a download feature to prevent resetting on configuration changing? Without cheats like `DownloadManager`.
