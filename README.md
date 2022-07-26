@@ -2397,19 +2397,90 @@
 * What is `Job`?
   <details>
   <summary>Answer</summary>
-    
+  
+  Job is one of the most important coroutine objects. 
+  
+  It provides following opportunities: 
+  
+  - Keeps coroutine state (active/cancelled/finished)
+  
+  - Cancel coroutine
+  
+  - Start postponed coroutine
+  
+  When `Continuation` finishes `invokeSuspend` execution, it reports this to the `Job` which changes coroutine state.
   </details>
 * What is `Scope`?
+  <details>
+  <summary>Answer</summary>
+  
+  The `Scope` is a mandatory component of coroutine creation process.
+    
+  It is a wrapper of the `CoroutineContext`. We use it for uniting all coroutines. It has `Job` which is a parent for every child coroutines.
+  </details>
+* Where can we get `Scope`?
+  <details>
+  <summary>Answer</summary>
+    
+  - `ViewModel` component (from Jetpack). It has `viewModelScope` property. 
+  
+    All coroutines will be cancelled during `ViewModel` finishing.
+  
+  - `LifecycleScope` which defined for each `Lifecycle` object. 
+  
+    Any coroutine launched in this scope is canceled when the `Lifecycle` is destroyed. 
+    
+    You can access the `CoroutineScope` of the `Lifecycle` either via `lifecycle.coroutineScope` or `lifecycleOwner.lifecycleScope` properties
+  </details>
+* What is `GlobalScope`?
+  <details>
+  <summary>Answer</summary>
+    
+  This scope doesn't have any `Job`. So you can't cancel coroutines of this scope. All coroutines of this scope will work until self-stop or process end.
+  
+  *Note:* it can cause memory leakes.
+  </details>
+  
+* How can we cancel `CoroutineScope`?
+  <details>
+  <summary>Answer</summary>
+    
+  We need to execute `CoroutineScope.cancel()`. By this action we cancel parent `Job` and it cancels all coroutines `Job` which have been created inside this `CoroutineScope`. 
+  </details>
+* What is structured concurrency?
+  <details>
+  <summary>Answer</summary>
+    
+  It is a mechanism of hierarchical structure for organizing coroutines work. 
+  
+  It describes these three main principles:
+  
+  1. If you cancel `Scope` - you cancel it's coroutines too. 
+  
+  2. `Scope` knows about all it's coroutines. It works because of `Job` relations parent-child.
+  
+  3. `Scope` waits all child coroutines. But `Scope` can work longer that all it's child coroutines.
+  </details>
 * What is `Dispatcher`?
   <details>
   <summary>Answer</summary>
     
   It determines what thread or threads the corresponding coroutine uses for its execution. The coroutine dispatcher can confine coroutine execution to a specific thread, dispatch it to a thread pool, or let it run unconfined.
 
-
   </details>
-* How can we cancel coroutine?
+* How can we cancel all coroutines of `CoroutineScope` but keep `CoroutineScope` alive?
+  <details>
+  <summary>Answer</summary>
+    
+  We need to get a `Job` of the `CoroutineScope` and execute `cancel()` function.
+  </details>
 * How can we change dispatcher inside coroutine?
+  <details>
+  <summary>Answer</summary>
+    
+  We can use `withContext(dispatcher)`
+  </details>
+* What we can use `runBlocking` for?
 * What is `Channel`?
 * What is `Flow`?
 
