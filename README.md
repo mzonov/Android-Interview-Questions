@@ -656,6 +656,7 @@
   
   By default the monitor is the object synchronized method/block is located. But we can always change it like this `synchronized(lock1)`. 
   </details>
+* What's the difference between `synchronized` keyword and `ReadWriteLock`?
 * What is atomic operation? What's the difference with plain operation?
   <details>
   <summary>Answer</summary>
@@ -2483,6 +2484,8 @@
 * What we can use `runBlocking` for?
 * What is `Channel`?
 * What is `Flow`?
+* What is `CallbackFlow`? 
+* What do you know about semaphore and mutex in coroutines?
 
 
 ## Dagger
@@ -2498,6 +2501,7 @@
 
 ## Database
 * What are the differences between NoSql and Sql approaches?
+* What's the difference between `inner join` and `join`?
 * Which approaches do you know in Android?
 * How would you choose between Realm and Room?
 * How would you resolve the migration issue in Room?
