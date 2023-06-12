@@ -2511,7 +2511,6 @@
 
 * What are the differences between `MVVM`, `MVP`, `MVI` approaches?
 * How would you choose between `MV`-approaches?
-* What is `Moxy`? What is the main feature of this?
 * Describe `SOLID` principles.
 * What is `god object` and what examples in Android SDK do you know?
 * What are the differences between `dependency injection`, `dependency inversion` and `inversion of control`?
