@@ -208,7 +208,7 @@
     - for methods: method can't be overriden
     - for variables: variable can't be modified
   </details>
-* Does it make any sence to declare method `private final`?
+* Does it make any sence to declare method as `private final`?
 
   <details>
   <summary>Answer</summary>
