@@ -108,7 +108,7 @@
   
   1. Two **different** objects can have the same `hashCode`. So-called "collision".
   
-  2. Two **equals** objects must have the same `hashCode`.
+  2. Two **identical** objects must have the same `hashCode`.
   
   We must avoid collisions as much as possible.
   
