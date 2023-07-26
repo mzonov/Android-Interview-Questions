@@ -276,7 +276,7 @@
   <details>
   <summary>Answer</summary>
   
-  **Anonymous inner classes** is an `inner class` without the name and with only single object created.
+  **Anonymous inner class** is an `inner class` without the name and with only single object created.
   
   It can be created from `interface` and `class` (abstract or default) aswell.
   </details>
