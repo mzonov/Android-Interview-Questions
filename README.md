@@ -246,6 +246,11 @@
   </details>
 
 * Where are `static` components stored?
+  <details>
+  <summary>Answer</summary>
+  
+  Static components are stored in the `PermGen` section of the heap. 
+  </details>
 
 #### Nested and Inner classes
 * What is a `nested class`?
