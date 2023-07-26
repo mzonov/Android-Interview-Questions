@@ -224,33 +224,6 @@
   
   Hence we can't declare the only constructor as `final`. 
   </details>
-  
-* What does `static` keyword mean?
-
-  <details>
-  <summary>Answer</summary>
-  
-  The `static` keyword is used for a constant variable or a method that is the same for every instance of a class.
-  
-  Users can apply `static` keyword with variables, methods, blocks, and nested classes.
-  
-  When a member is declared `static`, it can be accessed before any objects of its class are created, and without reference to any object.
-  </details>
-  
-* Can we declare the only constructor as `static`?
-
-  <details>
-  <summary>Answer</summary>
-  
-  No. Because the constructor is called when an object of a class is created. 
-  </details>
-
-* Where are `static` components stored?
-  <details>
-  <summary>Answer</summary>
-  
-  Static components are stored in the `PermGen` section of the heap. 
-  </details>
 
 #### Nested and Inner classes
 * What is a `nested class`?
@@ -290,12 +263,16 @@
 
 #### Static Components
 
-* What is `static` keyword we use for?
+* What does `static` keyword mean?
 
   <details>
   <summary>Answer</summary>
   
-  The `static` keyword is mainly used for memory management in Java. Static component is the same for every instance of a class.
+  The `static` keyword is used for a constant variable or a method that is the same for every instance of a class.
+  
+  Users can apply `static` keyword with variables, methods, blocks, and nested classes.
+  
+  When a member is declared `static`, it can be accessed before any objects of its class are created, and without reference to any object.
   </details>
 * What components can be marked as `static`?
   <details>
@@ -357,6 +334,13 @@
   <summary>Answer</summary>
   
   Yes.
+  </details>
+
+* Where are `static` components stored?
+  <details>
+  <summary>Answer</summary>
+  
+  Static components are stored in the `PermGen` section of the heap. 
   </details>
 
 #### Strings
