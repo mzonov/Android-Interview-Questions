@@ -1380,58 +1380,80 @@
   <details>
   <summary>Answer</summary>
   
+  Generics types are erasuring at runtime. E.g. List<String> type become to List type. So we don't know what types exist in the list.
+
   </details>
 * What's the reason for type erasure?
   <details>
   <summary>Answer</summary>
-  
+
+  Type erasure useful for resource management – with erasure help it needs to save less information, so less memory needed.
   </details>
 * Describe briefly collections tree.
     
   <details>
   <summary>Answer</summary>
-  
+
+  ![image](https://github.com/mzonov/Android-Interview-Questions/assets/22050131/94ef708a-fa91-4a8c-8465-1b5018cd566e)
+
+  Source: https://kotlinlang.org/docs/collections-overview.html#collection-types
   </details>
 * What is `Comparator`?
     
   <details>
   <summary>Answer</summary>
-  
+
+  That is an interface which provides a comparison function for imposing a total ordering between instances of the type T.
+
+  Source: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/
   </details>
 * What’s the difference between plain array and list?
   <details>
   <summary>Answer</summary>
+
   
   </details>
-* What’s the difference between `ArrayList` and `LinkedList?`?
+* What’s the difference between `ArrayList` and `LinkedList`?
   <details>
   <summary>Answer</summary>
+
+  `ArrayList` built as the wrapper of plain array. So it works as an array with some improvements like autoresize, etc.
   
+  `LinkedList` is a list of nodes. Every node has the link to previous and next item (except the first and the last).
+
+  So these approaches have different performance of different methods.
+
   </details>
 * Which operations process slowly in List and Array? Which quickly?
   <details>
   <summary>Answer</summary>
-  
+
+  - `ArrayList` has O(1) complexity of getting random element. Because array has direct references to every element in the list. While `LinkedList` has O(n) complexity because it has to traverse the list from the beginning to n-th element.
+ 
+  - `LinkedList` is faster in inserting/removing of first elements because it has just to change the links. While `ArrayList` has to shift all array to left (if removing) or right (if inserting). That's why we can't say that inserting/removing of random element is faster in `LinkedList` or `ArrayList` because both constructions have their own difficulties: `LinkedList` firstly gotta find the element (and it's costly if the element far from the beginning) and `ArrayList` in the end gotta shift whole remained array and reallocate memory for it.
+
   </details>
 * What is `Map`? What children it has?
   <details>
   <summary>Answer</summary>
-  
+
+  It's not an inheritor of the `Collection` interface. It stores key-value pairs (or entries). Keys are unique but different keys can be paired with equal values.
+
+  Source: https://kotlinlang.org/docs/collections-overview.html#map
   </details>
 * How does `HashMap` work?
   <details>
   <summary>Answer</summary>
-  
-  </details>
-* What we can use as `hash`? 
-  <details>
-  <summary>Answer</summary>
-  
+
+  So, you have **key** and **value**. Every **key** gotta be an unique object. Values could be either different and the same – it doesn't matter. The moment you're adding the key-value pair, `hashCode` under the hood is counting (or you can override it and count as you want). `hashCode` is the number counted by object's fields. In ideal world `hashcode` gotta be equal for every key. But how it works: let's say `hashMap` has the size of 16. So each `hashCode` gotta be converted to the number from 0 to 15 (the last element of the list of 16 elements). Converted `hashCode` may turn out to be the same as other object's `hashCode` – it's called "collision". 
+
+  To resolve this collision stuff `HashMap` under the hood an array of buckets where each bucket is `LinkedList`. So if collision happened, algorythm compares keys with `compare()` function and if it find absolutely the same key it overwrites the element, otherwise it puts the element to the end of list.
   </details>
 * What is the default size of load factor in hashing based collection?
   <details>
   <summary>Answer</summary>
-  
+
+  0.75. It means if the array is 3/4 full – it will be resized.
   </details>
 * What are `Generics`? What are their advantages?
   <details>
