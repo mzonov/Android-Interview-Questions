@@ -415,7 +415,7 @@
   </details>
 
 #### Exceptions
-* What exception types do you know? What are the differences?
+* What exception types do you know? What's the difference between them?
 
   <details>
   <summary>Answer</summary>
@@ -552,7 +552,7 @@
   
   No. If we do so, an `IllegalThreadStateException` will be thrown.
   </details>
-* What are the differences between `Mutex`, `Monitor` and `Semaphore`?
+* What's the difference between `Mutex`, `Monitor` and `Semaphore`?
   <details>
   <summary>Answer</summary>
   
@@ -770,7 +770,7 @@
 
 ## Java Memory Model
 
-* What are the differences between `Heap` and `Stack`?
+* What's the difference between `Heap` and `Stack`?
 
   <details>
   <summary>Answer</summary>
@@ -868,7 +868,7 @@
   
   The `finalize()` method is invoked each time before the object is garbage collected. This method can be used to perform cleanup processing.
   </details>
-* What reference types do you know? What are the differences between them?
+* What reference types do you know? What's the difference between them?
 
   <details>
   <summary>Answer</summary>
@@ -911,7 +911,7 @@
   - Outside of class
   </details>
   
-* What are the differences between sequence and collections approaches? 
+* What's the difference between sequence and collections approaches? 
   <details>
   <summary>Answer</summary>
   
@@ -923,7 +923,7 @@
 
   Unlike transformations on collections, intermediate transformations on sequences are not inline functions — inline functions cannot be stored and sequences need to store them.
   
-  Image illustrated principle differences between **collections** and **sequences**: https://typealias.com/img/guides/sequences-illustrated-guide/order-of-operations.png
+  Image illustrated principle difference between **collections** and **sequences**: https://typealias.com/img/guides/sequences-illustrated-guide/order-of-operations.png
   
   </details>
 * What’s the difference between nested and inner classes?
@@ -1249,7 +1249,7 @@
   </details>
 
 #### Data Class
-* What is `data class` under the hood? What are the differences with plain java class? 
+* What is `data class` under the hood? What's the difference between `data class` and plain class? 
   <details>
   <summary>Answer</summary>
     
@@ -1368,7 +1368,7 @@
     
   - return value
     
-  This [picture](https://miro.medium.com/max/1400/0*wZoYYxqh_7_B8JQ2.png) shows the differences.
+  This [picture](https://miro.medium.com/max/1400/0*wZoYYxqh_7_B8JQ2.png) shows the difference.
     
   Source: https://blog.kotlin-academy.com/mastering-kotlin-scoped-and-higher-order-functions-23e2dd34d660
   </details>
@@ -1979,7 +1979,7 @@
 
   While `replace()` methods clears all the previous Fragment from Containers and then add it in `FragmentContainer`.
   </details>
-* What are the differences between `commit()`, `commitNow()` and `commitAllowingStateLoss()`?
+* What's the difference between `commit()`, `commitNow()` and `commitAllowingStateLoss()`?
   <details>
   <summary>Answer</summary>
   
@@ -2502,7 +2502,7 @@
 ## Dagger
 * What is `dependencies graph`?
 * What are Dagger `component`, `module` and `subcomponent`?
-* What are the differences between `@Binds` and `@Provides`?
+* What's the difference between `@Binds` and `@Provides`?
 * How we can create the `component`?
 * How to `inject` values at runtime in Dagger?
 * What is `scope` in Dagger?
@@ -2511,7 +2511,7 @@
 * How to implement Dagger in multi module architecture?
 
 ## Database
-* What are the differences between NoSql and Sql approaches?
+* What's the difference between NoSql and Sql approaches?
 * What's the difference between `inner join` and `join`?
 * Which approaches do you know in Android?
 * How would you choose between Realm and Room?
@@ -2520,11 +2520,11 @@
 
 ## Architecture
 
-* What are the differences between `MVVM`, `MVP`, `MVI` approaches?
+* What's the difference between `MVVM`, `MVP`, `MVI` approaches?
 * How would you choose between `MV`-approaches?
 * Describe `SOLID` principles.
 * What is `god object` and what examples in Android SDK do you know?
-* What are the differences between `dependency injection`, `dependency inversion` and `inversion of control`?
+* What's the difference between `dependency injection`, `dependency inversion` and `inversion of control`?
 * Describe `Clean Architecture` and decompose it on layers.
 * Describe `Single Activity` principle.
 * What is singleton? What pros and cons do you know?
