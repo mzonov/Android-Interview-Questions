@@ -1278,11 +1278,23 @@
     
   Yes
   </details>
-* Does `hashcode` method of data class count class properties or constructor params only?
+* How do `hashcode` and `equals` methods work in data class?
   <details>
   <summary>Answer</summary>
     
-  
+  - hashCode:
+
+  Calculate hashCode for each property declared as constructor parameter in current class
+
+  Return `h1 × 31n−1 + h2 × 31n−2 + … + hn`
+
+  - equals (let parameter be named that):
+
+  Check if that is instance of our class (instanceof-check)
+
+  For each property declared as constructor parameter in current class, check if this.prop1 equals to that.prop1 (by invoking equals method).
+
+  Source: https://discuss.kotlinlang.org/t/how-does-kotlin-implement-equals-and-hashcode/940
   </details>
 
 #### Sealed Class/Interface
@@ -1458,7 +1470,7 @@
 * What are `Generics`? What are their advantages?
   <details>
   <summary>Answer</summary>
-  
+
   </details>
 * What is the main feature of `TreeMap` or `TreeSet`?
   <details>
@@ -2313,15 +2325,91 @@
 * When should we use `FrameLayout`, `LinearLayout` or `ConstraintLayout`?
   <details>
   <summary>Answer</summary>
-  
-  
 
+  - With Complex UI where we can have more hierarchies, it is wise to use `ConstraintLayout`.
+ 
+  - If you are using `LinearLayout` with weights/`RelativeLayout` with hierarchies, replace them with `ConstraintLayout`.
+ 
+  - For simple layouts with just one view centred on the screen, go for `FrameLayouts`.
+ 
+  - For simple screens, where you have to place views just horizontally and vertically, go for `LinearLayout`.
+
+  Source: https://nik-arora8059.medium.com/a-battle-towards-performance-constraintlayout-vs-other-layouts-part-3-d7646a849b4e
   </details>
 
 * What ways can we implement `Splash Screen`?
-* What are `resources`?
+  <details>
+  <summary>Answer</summary>
+
+  The official way is to use Splash Screen API.
+
+  Source: https://developer.android.com/develop/ui/views/launch/splash-screen
+  </details>
+
+* What is a `resources` directory?
+  <details>
+  <summary>Answer</summary>
+
+  Resources are the additional files and static content that your code uses, such as bitmaps, layout definitions, user interface strings, animation instructions, and more.
+
+  You can add there following files:
+
+  - `animator/`. XML files that define Property animations.
+ 
+  - `anim/`. XML files that define Tween animations. Property animations can also be saved in this directory, but the `animator/` directory is preferred for property animations to distinguish between the two types.
+ 
+  - `color/`. XML files that define a state list of colors. For more information, see Color state list resource.
+ 
+  - `drawable/`. Bitmap files (PNG, .9.png, JPG, or GIF) or XML files that are compiled into the following drawable resource subtypes:
+
+    - Bitmap files
+
+    - Nine-patches (re-sizable bitmaps)
+
+    - State lists
+
+    - Shapes
+
+    - Animation drawables
+
+    - Other drawables
+ 
+  - `mipmap/`. Drawable files for different launcher icon densities.
+ 
+  - `layout/`. XML files that define a user interface layout.
+ 
+  - `menu/`. XML files that define app menus, such as an options menu, context menu, or submenu.
+ 
+  - `raw/`. XML files that define Property animations. Arbitrary files to save in their raw form. To open these resources with a raw InputStream, call Resources.openRawResource() with the resource ID, which is R.raw.filename.
+
+    However, if you need access to the original filenames and file hierarchy, consider saving resources in the `assets/` directory instead of `res/raw/`. Files in assets/ aren't given a resource ID, so you can only read them using AssetManager.
+ 
+  - `values/`. XML files that contain simple values, such as strings, integers, and colors.
+ 
+  - `xml/`. Arbitrary XML files that can be read at runtime by calling Resources.getXML(). Various XML configuration files must be saved here.
+ 
+  - `font/`. Font files with extensions such as TTF, OTF, or TTC, or XML files that include a <font-family> element.
+
+  Source: https://developer.android.com/guide/topics/resources/providing-resources
+  </details>
+  
 * Why should we put strings and dimens into resources files?
-* What are `weight` and `orientation` in `LinearLayout`? What if we ignore `orientation`?
+  <details>
+  <summary>Answer</summary>
+
+  What about strings, it's recommended to use `strings.xml` because:
+  - It's much easier to maintain strings code
+  
+  - There's native approach to make strings translations
+ 
+  - To make code cleaner
+ 
+  What about dimens, all about supporting different screen sizes.
+
+  Source: https://developer.android.com/develop/ui/views/launch/splash-screen
+  </details>
+  
+* What are `weight` and `orientation` in `LinearLayout`? What if we ignore `orientation`?  
 * `ConstraintLayout`: what are `bias`, `barrier`, `chain`, `guideline`.
 * How can we maintain different screen sizes?
 * What’s the difference between `dp` vs `sp`?
