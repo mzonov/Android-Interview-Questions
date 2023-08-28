@@ -2267,7 +2267,7 @@
 
   </details>
 
-#### Data persistance
+#### Data saving
 * How can we persist any data in an Android app? 
 * Describe how `Scoped Storage` works in Android.
 * What is `SharedPreferences`?
@@ -2287,9 +2287,37 @@
 * What is push `category`?
 
 #### UI
-* What’s the difference between `View` and `ViewGroup`? 
-* What is `ViewPager`? Is it `View` or `ViewGroup`? 
+* What’s the difference between `View` and `ViewGroup`?
+  <details>
+  <summary>Answer</summary>
+  
+  - View
+    - View objects are the basic building blocks of User Interface(UI) elements in Android.
+    - View is a simple rectangle box which responds to the user's actions. Examples are EditText, Button, CheckBox etc..
+    - View refers to the android.view.View class, which is the base class of all UI classes.
+  - ViewGroup
+    - ViewGroup is the invisible container. It holds View and ViewGroup. For example, LinearLayout is the ViewGroup that contains Button(View), and other Layouts also.
+    - ViewGroup is the base class for Layouts.
+
+  Source: https://stackoverflow.com/a/34676816/7041761
+  </details>
+ 
+* What is `ViewPager`? Is it `View` or `ViewGroup`?
+  <details>
+  <summary>Answer</summary>
+  
+  `ViewPager` is `ViewGroup`.
+
+  It's usually used for displaying Views of Fragments in a swipeable format.
+  </details>
 * When should we use `FrameLayout`, `LinearLayout` or `ConstraintLayout`?
+  <details>
+  <summary>Answer</summary>
+  
+  
+
+  </details>
+
 * What ways can we implement `Splash Screen`?
 * What are `resources`?
 * Why should we put strings and dimens into resources files?
