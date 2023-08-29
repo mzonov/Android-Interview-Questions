@@ -1419,12 +1419,6 @@
 
   Source: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/
   </details>
-* What’s the difference between plain array and list?
-  <details>
-  <summary>Answer</summary>
-
-  
-  </details>
 * What’s the difference between `ArrayList` and `LinkedList`?
   <details>
   <summary>Answer</summary>
@@ -1471,21 +1465,31 @@
   <details>
   <summary>Answer</summary>
 
+  
   </details>
 * What is the main feature of `TreeMap` or `TreeSet`?
   <details>
   <summary>Answer</summary>
-  
+
+  All elements are sorted in ascending order by default.
   </details>
 * What is the difference between `HashSet` and `HashMap`?
   <details>
   <summary>Answer</summary>
-  
+
+  `HashMap` implements `Map` interface. `HashSet` implements `Set` interface but works with `HashMap` algorythm, where the key is the object itself.
   </details>
 * What is the difference between `HashMap` and `Hashtable`?
   <details>
   <summary>Answer</summary>
-  
+
+  - `HashMap` is a non-synchronized unordered key-value pair map. It allows empty values and uses the hash code as an equality check, while `Hashtable` is a synchronized ordered map of key-value pairs. It does not allow empty values and uses the `equals()` method to check for equality.
+
+  - `HashMap` has default capacity of 16 while `Hashtable` – 11.
+
+  - The values of a `HashMap` object are enumerated using an `iterator`, and `Hashtable` is the only class other than vector that uses an `enumerator` to enumerate the values of a `Hashtable` object.
+ 
+  Source: https://medium.com/@sweetaps1995/difference-between-hashmap-hashtable-4a1c148bb5dd
   </details>
 
 
