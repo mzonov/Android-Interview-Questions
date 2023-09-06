@@ -2636,22 +2636,23 @@
 * What's the difference between NoSql and Sql approaches?
 * What's the difference between `inner join` and `join`?
 * Which approaches do you know in Android?
-* How would you choose between Realm and Room?
+* How would you choose between `Realm` and `Room`?
 * How would you resolve the migration issue in Room?
 * What is `ORM`?
 
 ## Architecture
 
-* What's the difference between `MVVM`, `MVP`, `MVI` approaches?
+* What's the difference between `MVC`, `MVVM`, `MVP`, `MVI` approaches? Which are the most popular right now and why? 
 * How would you choose between `MV`-approaches?
-* Describe `SOLID` principles.
+* What is `SOLID`? Describe its' principles.
+* What are `KISS` and `DRY` principles?
 * What is `god object` and what examples in Android SDK do you know?
 * What's the difference between `dependency injection`, `dependency inversion` and `inversion of control`?
 * Describe `Clean Architecture` and decompose it on layers.
 * Describe `Single Activity` principle.
 * What is singleton? What pros and cons do you know?
-* What is `multi module` architecture? What are advantages of this?
+* What is `multi module` architecture? Tell about pros and cons.
 * Describe 3 main principles of `OOP`.
 * What’s the difference between `inheritance` and `composition`?
 * What's the difference between `abstract factory` and `factory pattern`?
-* How would you implement a download feature to prevent resetting on configuration changing? Without cheats like `DownloadManager`.
+* How would you implement a download feature to prevent resetting on configuration changing without `DownloadManager` usage?
