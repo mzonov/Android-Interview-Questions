@@ -2616,7 +2616,34 @@
   </details>
 * What we can use `runBlocking` for?
 * What is `Channel`?
-* What is `Flow`?
+  <details>
+  <summary>Answer</summary>
+    
+  `Channel` was added as an inter-coroutine communication primitive. Channels support one-to-one, one-to-many, many-to-one, and many-to-many communication between coroutines, and every value that is sent to the channel is received once.
+
+  You cannot use channels to distribute events or state updates in a way that allows multiple subscribers to independently receive and react upon them.
+
+  Source: https://elizarov.medium.com/shared-flows-broadcast-channels-899b675e805c
+  </details>
+* What is `Flow`? Is it cold or hot by default?
+  <details>
+  <summary>Answer</summary>
+    
+  Flows are typically cold — a Flow<Value> created by `flow { … }` builder function is a passive entity. Consider the following code:
+
+  ```
+  val coldFlow = flow {
+    while (isActive) {
+        emit(nextEvent)
+    }
+  }
+  ```
+
+  The flow itself is not backed by any kind of computation and does not have any state by itself until it starts to be collected. Every collector coroutine executes its own instance of emitting code.
+  
+  Source: https://elizarov.medium.com/shared-flows-broadcast-channels-899b675e805c
+  </details>
+* What's the difference between `SharedFlow` and `StateFlow`?
 * What is `CallbackFlow`? 
 * What do you know about semaphore and mutex in coroutines?
 
